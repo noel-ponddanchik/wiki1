@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Protocol for Managing Live Datasets</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+This wiki page walks you through how and when to update our live data sets. These live data sets are generally used to create ArcGIS Online Interactive Maps. Our live data sets include: Counts, Striping As-Builts, and Road Diets.<br />
+<h3 id="toc0"> </h3>
+ <h3 id="toc1"><a name="x--Adding a New Record"></a>Adding a New Record</h3>
+ Each data set listed above has a corresponding excel or access database file. When new data is acquired it should be added to the excel sheet under the last existing entry, leaving the ID column empty and highlighting the empty ID field in yellow. Then, fill in the all of the columns with the projects corresponding data. The ID field will be filled and un-highlighted after the spatial edit has been completed. For the as-built maps only, individual .pdf and .dwg documents need to be uploaded to sharepoint and a URL generated.<br />
+<img src="files/AddingCAP.JPG" alt="AddingCAP.JPG" title="AddingCAP.JPG" style="height: 134px; width: 373px;" /><br />
+<h3 id="toc2"><a name="x--Deleting a Record"></a>Deleting a Record</h3>
+ When a record needs to be deleted, it should first be noted in the &quot;Status Column&quot;. First the record should be deleted from the Shapefile, then the tabular (Excel) data.<br />
+<h3 id="toc3"><img src="files/DeleteCAP.JPG" alt="DeleteCAP.JPG" title="DeleteCAP.JPG" style="height: 112px; width: 377px;" /></h3>
+ <br />
+<h3 id="toc4"><a name="x--Editing Tabular Data"></a>Editing Tabular Data</h3>
+ This task of the update process is the most simple. Edit your desired data on the excel sheet and the next time a join with the spatial data is completed, the edit to the tabular data will have been updated.<br />
+<h3 id="toc5"><a name="x--Spatial Edits"></a><span style="background-color: #ffffff;">Spatial Edits</span></h3>
+ <span style="background-color: #ffffff;"> Every three months (or as large batches of data are obtained), each data set should be updated. First, you must open the corresponding excel file to see if any additions have been made to the data set. Then, open Arcmap and add said data sets shapefile and make sure the previous join is still intact. </span><br />
+<span style="background-color: #ffffff;"> Next, spatialize the new data entries using the edit tool. Having the complete streets layer underneath the layer you are editing helps when creating features because it keeps the new features consistent. When finished make sure to save the edits in Arcmap.</span><br />
+<h3 id="toc6"><a name="x--Confirming Edits"></a>Confirming Edits</h3>
+ To confirm that the edits have been completed, fill the empty ID field in the excel file with the ID that were assigned to the newly created feature in ArcMap. Then remove the yellow highlight from the ID field.<br />
+<h3 id="toc7"><a name="x--Uploading Files to Sharepoint (As-Builts Map only)"></a>Uploading Files to Sharepoint (As-Builts Map only)</h3>
+ <ol><li>Staff (not intern), get access to &quot;AsBuiltBikewayStripingPlans&quot; folder from Jennifer</li><li>Log in to Office 365 and click OneDrive</li><li>Drag and drop the .pdf and/or .dwg files into the &quot;AsBuiltBikewayStripingPlans&quot; folder</li><li>Rename each file using the syntax from other files (start with Project ID# and separate words with _ or - (don't leave blanks)</li><li>Select the file radio button and then copy the link using Copy Link from menu (there are several ways)</li><li><span style="background-color: #eecc38;">TBD: where to save URL for .pdf and dwg</span></li></ol><br />
+<br />
+Always be sure to <u><strong>Save Everything</strong></u><br />
+Save and close Arcmap and save and close the excel file.<br />
+<h3 id="toc8"><a name="x--Greater Detailed Steps (Broken down for each dataset)"></a>Greater Detailed Steps (Broken down for each dataset)</h3>
+ <br />
+<em>Road Diets:</em><br />
+1. Opening the Excel file that is linked to the Spatial Data (Located here: \\PWAFILE2\Transportation\Bike-Ped_Program\Projects\Planning\SC-TAP-bike-network\7-Road-diet-mapping\road-diets-SOURCE.xls).<br />
+- Upon opening the Excel file, view the &quot;read me&quot; tab to understand how the sheet works.<br />
+- If new segments need to be spatialized, their ID column will have the words &quot;NEW&quot; written in them rather than an ID number. Take note of the extents and proceed to step 2.<br />
+2. Open ArcMap Document (Located here: \\PWAFILE2\Transportation\Bike-Ped_Program\Projects\Planning\SC-TAP-bike-network\7-Road-diet-mapping\RoadDietsMap.mxd).<br />
+3. Start an editing session with the Road_Diet_Complete_Dataset shapefile.<br />
+- Spatialize the features that are listed in the Excel Sheet without an ID number.<br />
+- Once you have created the new segment, switch back to the Excel file and add the ID number next to the segment's information.<br />
+4. Add the Excel file to ArcMap.<br />
+- Make sure you are adding the sheet with the data, rather than the &quot;read me&quot; tab.<br />
+5. Join Excel Sheet to Shapefile<br />
+6. Export Shapefile to Road Diets folder<br />
+-Folder is located here (\\PWAFILE2\Transportation\Bike-Ped_Program\Projects\Planning\SC-TAP-bike-network\7-Road-diet-mapping\Shapefiles)<br />
+7. In Shapefile's folder Zip all parts of the shapefile into a folder<br />
+-ArcGIS Online only accepts Zipped Shapefiles<br />
+8. Add Shapefile to ArcGIS Online Road Diets Map.<br />
+- Before deleting old layer, copy symbology and pop-up window configuration.<br />
+9. SAVE<br />
+<br />
+<em>Counts</em><br />
+<br />
+<em>Striping As-Builts</em>
+    </div>
+  </body>
+</html>

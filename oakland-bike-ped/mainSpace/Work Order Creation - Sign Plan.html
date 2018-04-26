@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Work Order Creation - Sign Plan</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">This is an overview of the sign plan work order, the final component of the <a class="wiki_link" href="Sign%20Plan%20Process.html">sign plan process</a>. Each attachment is described with instructions on how to create it. </span><br />
+<span style="font-size: 12.7272720336914px;">After generating all relevant attachments, assemble the various components of the work order into a single pdf using Adobe Acrobat.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Cover Sheet:">Cover Sheet:</a></div>
+<div style="margin-left: 1em;"><a href="#Attachment A: Installation locations/descriptions">Attachment A: Installation locations/descriptions</a></div>
+<div style="margin-left: 1em;"><a href="#Attachment B: Sign Messages">Attachment B: Sign Messages </a></div>
+<div style="margin-left: 1em;"><a href="#Attachment C: Signage Plan Map">Attachment C: Signage Plan Map</a></div>
+<div style="margin-left: 1em;"><a href="#Attachment D: Sign Removal Locations">Attachment D: Sign Removal Locations</a></div>
+<div style="margin-left: 1em;"><a href="#Attachment E: Typical Sign Details">Attachment E: Typical Sign Details</a></div>
+<div style="margin-left: 1em;"><a href="#Attachment F: Custom Sign Layouts">Attachment F: Custom Sign Layouts</a></div>
+<div style="margin-left: 1em;"><a href="#Compile Work Order">Compile Work Order</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="Cover Sheet:"></a>Cover Sheet:</h1>
+ <hr />
+<ul><li><span style="background-color: #ffffff; font-size: 12.7272720336914px; line-height: 1.5;">Open the <strong>work order template</strong> (located:</span>\\PWAFILE2\Transportation\Bike-Ped_Program\Projects\Bikeways-signage\5-Corridors\1-Corridor-Development_General\work-orders\work-order-overview-template.xls<span style="background-color: #ffffff; font-size: 12.7272720336914px; line-height: 1.5;"> ). Save a copy with an updated filename to the project folder.</span></li><li>The first worksheet either <strong>'Quantities-contractor'</strong> or <strong>'Quantities-city-crews'</strong> is the cover sheet</li><li>To obtain the values for 'installation quantities by sign type' you will generate a report in Access.</li><li>Open the report <strong>'r1TEMPLATE_Quantities'</strong> in Design View and change the report’s record source to the query you generated for the <a class="wiki_link" href="Field%20Review%20-%20Sign%20Plan.html">field review</a>. Switch to Print Preview and use the sign assembly quantities listed to fill in<span style="font-size: 12.7272720336914px;"> the values of 'installation quantities by sign type'</span><ul><li><em><span style="font-size: 13px; line-height: 1.5;">QUANTITIES NOTES</span></em><span style="font-size: 13px; line-height: 1.5;">:</span><ol><li><span style="font-size: 13px; line-height: 1.5;">Only new signs (Wayfinding, turn, regulatory, warning) are to be counted in this report.</span></li><li><span style="font-size: 13px; line-height: 1.5;"> If there are existing signs that are part of another project &amp; will be used in the current project, only count the signs that will be added to the assembly.</span></li><li><span style="font-size: 13px; line-height: 1.5;"> If the existing assembly is to remain unaltered, do not count it.If any of the destinations supported along the route require two lines of text, some of the D1-1bs will have atypical dimensions. These signs should be called out on the cover sheet; see the Fruitvale Ave work order for an example. To determine which destinations require two lines of text, consult the wayfinding signage design guidelines.</span></li></ol></li></ul></li><li><span style="line-height: 1.5;">On the cover sheet, delete sign types that have quantity=0. Also, delete </span>attachments<span style="line-height: 1.5;"> from the listing that will not be included with the work order.</span></li><li><span style="font-size: 13px; line-height: 1.5;">Export the cover sheet to pdf </span></li></ul><br />
+<br />
+<h1 id="toc1"><a name="Attachment A: Installation locations/descriptions"></a><span style="background-color: #ffffff;">Attachment A: Installation locations/descriptions</span></h1>
+ <hr />
+<ul><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Attachment A is a report generated in Access that lists each sign's location, messaging, and installation notes. It is based on a query that captures all of the corridor locations.</span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Open the report <strong>“r1TEMPLATE_WorkOrder”</strong> in the WayfindingSigns Access database in&quot; DesignView.&quot; Similar to the <a class="wiki_link" href="Field%20Review%20-%20Sign%20Plan.html">field review report process</a>, change the report’s record source (query and corridor name) to the correct bikeway corridor. Name and save the report (replace “TEMPLATE” with the corridor name). The syntax is very fussy! For the query, see</span></li></ul><img src="files/Capture.JPG" alt="Capture.JPG" title="Capture.JPG" /><br />
+<ul><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;"><span style="font-size: 12.7273px;">For the report, see below. Example Filter syntax fo the Foothill/Bancroft corridor is </span><span style="display: inline !important;">(([tSigns].[Corridor]=&quot;Foothill/Bancroft from Lakeshore Ave to San Leandro&quot;)). Example Order By syntax is </span></span></li><li>[tSigns].[ProjectSort], [tSigns].[SignID], [tSigns].[Repair_Status], [tSigns].[Last_Verified] DESC, [tSigns].[Street], [tSigns].[Repair_Instructions], [tSigns].[CrossStreet]</li></ul><img src="files/syntax.jpg" alt="syntax.jpg" title="syntax.jpg" style="height: 543px; width: 800px;" /><br />
+<ul><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">View and print the report; export to pdf only when finalized (or requested).</span></li></ul><br />
+<h1 id="toc2"><a name="Attachment B: Sign Messages"></a><span style="background-color: #ffffff;">Attachment B: Sign Messages </span></h1>
+ <hr />
+<ul><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Attachment B is a word document for the sign printers listing the sign messages. This document is a report generated in Access. </span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Open the report <strong>“r1TEMPLATE_SignMsgsforExportv2&quot;</strong> in Design View and change the report’s record source to the correct bikeway corridor. </span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Return to Print Preview and select “Publish it with Microsoft Office Word” from the toolbar. </span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Save the document to the project folder. It will be submitted digitally.</span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Name the file </span><span style="font-size: 12.7272720336914px;">2b-[corridor name]-sign-messages</span></li></ul><br />
+<br />
+<h1 id="toc3"><a name="Attachment C: Signage Plan Map"></a><span style="background-color: #ffffff;">Attachment C: Signage Plan Map</span></h1>
+ <hr />
+<ul><li>This is the finalized <a class="wiki_link" href="Project%20Map%20-%20Sign%20Plan.html">project map</a>.</li></ul><br />
+<br />
+<h1 id="toc4"><a name="Attachment D: Sign Removal Locations"></a><span style="background-color: #ffffff;">Attachment D: Sign Removal Locations</span></h1>
+ <hr />
+<ul><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">This attachment is the <strong>'Removal'</strong> work sheet of the project's work-order-overview excel workbook.</span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Fill in the template with signs slated for removal.</span></li><li><span style="background-color: #ffffff; font-size: 12.7272720336914px;">Export the removal list as a pdf</span></li></ul><br />
+<br />
+<h1 id="toc5"><a name="Attachment E: Typical Sign Details"></a><span style="background-color: #ffffff;">Attachment E: Typical Sign Details</span></h1>
+ <hr />
+<ul><li><span style="background-color: #ffffff; font-size: 13px; line-height: 1.5;">This attachment is the Typical Bikeway Signage Assemblies and Mounting Configuration. It is a standard attachment</span></li><li><span style="font-size: 12.7272720336914px;">Attachment E is located at:<br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-signage\1-resources\work-orders-general\work-order-attachments\Attach-E-bike-signage-assemblies_revMarch11.pdf</span></li></ul><br />
+<br />
+<h1 id="toc6"><a name="Attachment F: Custom Sign Layouts"></a><span style="background-color: #ffffff;">Attachment F: Custom Sign Layouts</span></h1>
+ <hr />
+<ul><li><span style="font-size: 13px; line-height: 1.5;">If there is a non-standard sign design for the corridor, Jennifer creates a detailed layout to be submitted.</span></li></ul><br />
+<h1 id="toc7"><a name="Compile Work Order"></a>Compile Work Order</h1>
+ <hr />
+<ul><li><span style="font-size: 12.7272720336914px;">After all components of the work order are created and approved, create one pdf that includes all attachments</span></li><li><span style="font-size: 12.7272720336914px;">Save the pdf in the corridor folder and name the file 2a-[corridor name]-work-order</span></li></ul>
+    </div>
+  </body>
+</html>

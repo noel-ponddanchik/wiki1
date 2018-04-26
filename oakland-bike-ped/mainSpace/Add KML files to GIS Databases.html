@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Add KML files to GIS Databases</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">Use this how to when one needs to get kml files off of a smartphone and into a geodatabase.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1></div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<ol><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Take the individual kml files and merge them into one kml file.</span><ol><li><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">Create a copy of one of the kml files and open the kml file in a text editor such as Notepad++.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">Open each of the other kml files and copy all of the information within, and including, the placemark tags.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">One at a time, paste the copied placemark tags and information from step 1b in between the closing placemark tags in the file from step 1a and before the closing document tag (&lt;/Document&gt;).</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">Save this kml file with a new name such as “All_points_for _Genoa_West_St.kml”</span></li></ol></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">In ArcMap, add the feature class to the map document that you would like to add the kml points to.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">In the ArcToolbox, go to conversion tools, then click “From KML”, then click KML to Layer.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Next to Input KML File, click the folder button and navigate to the kml file created in step 1d.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Choose a location for the output layer, and give the output layer a name. Add the output layer to the map.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Right click the layer we want to add the kml points to and go to edit features </span><span style="font-family: Wingdings; font-size: 11pt;">à</span><span style="font-family: Calibri,sans-serif; font-size: 11pt;">start editing.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Right click the output layer created in step 5, press control + c, then press control + v. When the dialog box asks where you want to paste the new features, click the layer that we selected in step 6.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Make sure the attributes of the newly created features are correct and then save edits.</span></li></ol>
+    </div>
+  </body>
+</html>

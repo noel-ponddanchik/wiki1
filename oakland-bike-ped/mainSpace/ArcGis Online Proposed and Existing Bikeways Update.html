@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - ArcGis Online Proposed and Existing Bikeways Update</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The Bike Program's public-facing web map shares the status of existing bicycle facilities (bikeways, signs, counts, and racks). The map also features pop-up windows that include photos of existing bike parking and bike signs. First launched in September 2016, the map should be updated every six months in January and July. This wiki requires an understanding of the relationship between the various relevant Access databases as well as ArcGIS and some intermediate-level Excel functions.Files for this project are stored at Bike-Ped_Program\GIS\ArcGISOnline-webmap.</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"> The process for updating the map is as follows:</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"> <strong>1.</strong> <strong>Create New Project Folder in the ArcGIS-Online Webmap Folder</strong></span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The folder can be found here:</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"><a class="wiki_link_ext" href="file://oakland/pwa/Transportation/Bike-Ped_Program/GIS/ArcGISOnline-webmap" rel="nofollow">\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\ArcGISOnline-webmap</a></span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The created folder should say the month and year of the update, example: May_2017</span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">2. Open Access</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">This step is done for each of the Layers that are updated (Purposed Bikeways and Existing Bikeways)</span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">First check to see that the access database is up to date. Meaning that the newest and most recent iteration of the database is being used. Secondly export the Database as an excel file, and save as a .csv. This excel file will eventually be used to join with its corresponding Shapefile.</span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">3. Open ArcMap</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Open ArcMap and add the shapefile that you are looking to update (Bikeways). These shapefiles can be found in our Master Geodatabase.</span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">4. Join Excel File</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Take the Excel file that you created in Step 2 and join the Excel file to the Shapefile used in the previous step. The joined file should have all the information from the shapefile plus all the info from the Excel file. </span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">5. Export the Shapefile</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Right Click the shapefile you are planning on updating and export the shapefile to your working folder.</span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">6. Zip the Shapefile</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The Shapefile you are working with must be zipped for it to be displayed by the ArcOnline application. To zip a shapefile, select all the elements (except the LOCK file) that were created by exporting from ArcMap and then right click on all the selected files and select the “send to” option. Within the “send to” option click Compressed Zipped Folder. The Shapefile is now ready to be uploaded.</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"><strong>7. Add Zipped Shapefile to ArcGIS webmap to replace existing layers</strong></span><br />
+Go to <a class="wiki_link_ext" href="https://www.arcgis.com/home/index.html" rel="nofollow">https://www.arcgis.com/home/index.html</a> and log on using Jennifer's log on.<br />
+Click the &quot;Content&quot; tab at the top.<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"> Launch the ArcGIS online map that you will be editing (City of Oakland Bikeways: Existing and Proposed Bikeways) (use the Web Map version not the web mapping application).</span><br />
+<ul><li>Click to open the map page.</li><li>Click &quot;Open in Map Viewer&quot;</li></ul><span style="font-family: Arial,sans-serif; font-size: 10pt;">Then add the new Zipped Shapefile by doing the following,</span><br />
+<ul><li><span style="font-family: Arial,sans-serif; font-size: 10pt;">Click the &quot;Add&quot; tab in the top left</span></li><li><span style="font-family: Arial,sans-serif; font-size: 10pt;">Click &quot;add layer from file&quot;</span></li><li><span style="font-family: Arial,sans-serif; font-size: 10pt;">Browse for your desired Zipped Shapefile Folder and select it</span></li></ul><br />
+You will need to add the bikeways zipped shapefile twice, once to symbolize Proposed and once to symbolize Existing class.<br />
+<span style="font-family: Arial,sans-serif; font-size: 13.3333px;">Copy the symbology from an existing layer by going to the content tab then hovering over the layer you just added and clicking the symbol that looks like shapes.</span><br />
+<span style="font-family: Arial,sans-serif; font-size: 13.3333px;">Copy the design of the pop-up windows to match the old layer. </span><br />
+<span style="font-family: Arial,sans-serif; font-size: 13.3333px;">After updating the layers and symbology, you can delete the old layer and rename the new layer with the proper name.</span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"> <strong><u>MAKE SURE TO</u></strong> save the map before closing the webpage (on top toolbar).</span>
+    </div>
+  </body>
+</html>

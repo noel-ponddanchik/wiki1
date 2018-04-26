@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - How to fix the ArcGIS schema lock error</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+The change in the network link for our data has created a recurring error in ArcGIS.<br />
+<br />
+&quot;failure to connect to database&quot;<br />
+&quot;cannot acquire a scheme lock due to an existing lock&quot;<br />
+<br />
+The fix is done by accessing the .mxd file in ArcCatalog to repair the links.<br />
+<br />
+-first make sure no one is using ArcGIS on our team. If the geodatabase is being used you cannot make changes.<br />
+<br />
+-navigate to the map <br />
+-right click the map<br />
+-click on &quot;set data source&quot;<br />
+-expand window<br />
+-change the beginning of all of the old links from \\pwafile2\transportation to \\oakland\pwa\Transportation <br />
+-a new map will be generated<br />
+-open the new map to ensure the fix worked<br />
+-then archive the old version in a &quot;old&quot; folder<br />
+-change the name of the new version from &quot;copy&quot; to the intended name
+    </div>
+  </body>
+</html>

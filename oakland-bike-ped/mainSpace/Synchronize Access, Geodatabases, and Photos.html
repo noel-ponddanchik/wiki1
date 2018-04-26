@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Synchronize Access, Geodatabases, and Photos</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff; line-height: 1.5;">(Advanced Process! for basic process see <a class="wiki_link" href="How%20to%20delete%20Duplicates%20in%20Excel%20%28including%20original%29%20for%20matching%20Access%20to%20GIS.html">http://oakland-bike-ped.wikispaces.com/How+to+delete+Duplicates+in+Excel+%28including+original%29+for+matching+Access+to+GIS</a> )</span><br />
+<br />
+<span style="background-color: #ffffff; line-height: 1.5;">File and scripts used to keep track of what racks and/or wayfinding signs need to have their access records, geodatabase records (ESRI .gdb), or photos updated to make sure all three sets of files are up to date with one another.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#x1. Overview">1. Overview</a></div>
+<div style="margin-left: 1em;"><a href="#x2. Approach">2. Approach</a></div>
+<div style="margin-left: 1em;"><a href="#x3. How-To">3. How-To</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="x1. Overview"></a><span style="background-color: #ffffff;">1. Overview</span></h1>
+ <hr />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">For bike racks and wayfinding signs, we have the following three repositories of information:</span><br />
+<ul><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Access databases which contain most of the information for each rack/sign</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">GIS feature classes which contain information about the spatial location of each rack/sign</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Folders of photos which contain image data about what each rack/sign looks like</span></li></ul><br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">These three repositories are not completely in-synch with one another. Specifically, it is not the case that every installed rack/sign in the access database has an associated photograph in the appropriate folder and point in the appropriate feature class.</span><br />
+<br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">This lack of synchronization is likely to have always been the case since the repositories were created at different times, and when the photos folders and GIS feature classes were created, it is unlikely that all existing racks/signs had points made for them and photos taken of them. Moreover, as racks and signs are removed, there have been instances where and there may be future opportunity for points or photos to exist even though the rack/sign no longer exists in the field (and no longer has an installed status in the Access database). Alternatively, racks and signs have been installed (and the status in their Access record changed to installed) but points and/or photos have failed to be created or taken.</span><br />
+<br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">As such, there needs to be a way to:</span><br />
+<ul><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Check whether all repositories are synchronized with one another</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">Identify which items in which repositories are not represented in which other repositories</span><ul><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">For example, record “j” in the Access database does not have an accompanying point in the GIS layer, or photo “k” does not have an accompanying record in the Access database)</span></li></ul></li></ul><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Notes:</span><br />
+<ol><li><span style="line-height: 1.5;">The efforts described here are in addition to, not instead of, the efforts to correct any points in the bike rack and wayfinding sign feature classes after doing fieldwork.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">This document does not make any assumption about and does not speak to the accuracy of the information in each of the three repositories; it merely checks the presence of a piece of information in each repositories, regardless of correctness.</span></li></ol><br />
+<h1 id="toc1"><a name="x2. Approach"></a><span style="background-color: #ffffff;">2. Approach</span></h1>
+ <hr />
+In the most basic of terms, having these repositories be synchronized means that the following six criteria are met:<br />
+<br />
+a) All records in the Access Database, whose status is “Installed”, have an accompanying photograph in the appropriate folder.<br />
+b) All records in the Access Database, whose status is “Installed”, have an accompanying point in the appropriate GIS feature class.<br />
+c) All points in the GIS feature classes should have an accompanying record in the Access database whose status is “Installed.”<br />
+<strong>*Note that for signs, this is not necessarily true since points are made in the geodatabase before the sign is actually installed.</strong>*<br />
+d) All points in the GIS feature classes should have an accompanying photograph in the appropriate folder.<br />
+<strong>*Note that for signs, this is not necessarily true since points are made in the geodatabase before the sign is actually installed.</strong>*<br />
+e) All photographs should have an accompanying record in the Access database whose status is “Installed.”<br />
+f) All photographs should have an accompanying point in the appropriate GIS feature class.<br />
+<br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">To check each of these conditions for racks or wayfinding signs, the basic idea is to compare (2 at a time) the list of Access records whose status is installed, the list of photos in the appropriate folder, and the list of ID’s of points in the appropriate GIS feature class.</span><br />
+<br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">Given that this is a tedious task that is expected to be performed multiple times, a python script (reposynch.py) was written to automate this task. It is located in the following folder </span><span style="line-height: 1.5;">\\oakland\pwa\transportation\bike-ped_program\Projects\Data_Synchronization.</span><br />
+<br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">The script will identify, via each resource's ID number, which resource (i.e. which bike rack or wayfinding sign) is present in one of the repositories described above and missing from another. The output will be a csv file with twelve columns, six for bike racks and six for wayfinding signs. Each column denotes a particular mismatch between data being present in one repository but not the other. Within each row, there will be an id number denoting which resource had the discrepancy specified by the column header. The file will be named: &quot;rack_sign_synchronization_needs.csv&quot; and will be located in the same folder (see above) as the script.</span><br />
+<br />
+<h1 id="toc2"><a name="x3. How-To"></a><span style="background-color: #ffffff;">3. How-To</span></h1>
+ <hr />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">First, for the script to work correctly, the following file needs to be updated: rack_sign_resources.csv. It is in the folder above. Directions for updating the excel file are: </span><br />
+<ol><li>Open the BikeParking Access database</li><li>Filter the Status field so that only the “Installed” value is checked, and make sure no other field has a filter applied to it.</li><li>Select the entire “RackID” field. Next copy and paste the field into column A of <span style="font-family: Calibri,sans-serif; font-size: 15px;">rack_sign_resources.csv</span>.</li><li>Open the WafindingSigns access database.</li><li>In tSigns, ensure that the Installed field is shown and that the field is filtered so that only signs which are installed are shown.</li><li>Copy and paste the SignID field into column B of <span style="font-family: Calibri,sans-serif; font-size: 15px; line-height: 1.5;">rack_sign_resources.csv</span>.</li><li>In ArcMap, add the parking feature class from master.gdb (bike-ped_program/GIS/master.gdb).</li><li>Also add the signage feature class from master.gdb</li><li>Right click the parking layer in the ArcMap table of contents and got to Selection and click “Select All.”</li><li><span style="line-height: 1.5;">Right click the parking layer in the ArcMap table of contents and go to Selection and click “Copy Records For Selected Features.”</span></li><li><span style="line-height: 1.5;"><span style="line-height: 1.5;">Paste the copied records into <span style="font-family: Calibri,sans-serif; font-size: 15px; line-height: 1.5;">rack_sign_resources.csv</span></span>.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Get rid of all fields except the id field. The bike rack id field should be in column C of rack_sign_resources.csv.</span></li><li><span style="line-height: 1.5;">Repeat steps 9 and 10 with the signage layer.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Paste the copied wayfinding sign records into rack_sign_resources.csv.</span></li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">Get rid of all fields except the id field. The wayfinding sign id field should be in column D of rack_sign_resources.csv.</span></li><li><span style="line-height: 1.5;">Save </span><span style="font-family: Calibri,sans-serif; font-size: 11pt; line-height: 1.5;">rack_sign_resources.csv.</span></li></ol><br />
+<span style="line-height: 1.5;">Secondly, to run the script:</span><br />
+<ol><li><span style="line-height: 1.5;">Navigate to \\oakland\pwa\transportation\bike-ped_program\Projects\Data_Synchronization</span></li><li>In some part of the window, beneath the names of the various files, hold control + alt+ shift, then Right-Click and select “Open command window here.”</li><li>At the command prompt, type “python reposynch.py” without the quotes and press enter.</li></ol><br />
+Note that this script requires a working installation of <a class="wiki_link_ext" href="https://docs.python.org/2/" rel="nofollow">python</a>.<br />
+<hr />
+
+    </div>
+  </body>
+</html>

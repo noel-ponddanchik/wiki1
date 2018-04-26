@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Bi-annual bikeway striping and signage design status report</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">The bi-annual striping and signage update includes a map and pages from the striping and signage projects tracking spreadsheets in </span><br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-project_tracking. The packet is typically created in time for the April and October BPAC meetings, and is also posted on the web, replacing asset oak026930; <a class="wiki_link_ext" href="http://www2.oaklandnet.com/Government/o/PWA/o/EC/s/BicycleandPedestrianProgram/OAK024586" rel="nofollow">http://www2.oaklandnet.com/Government/o/PWA/o/EC/s/BicycleandPedestrianProgram/OAK024586</a> needs to be updated to reflect the current date. Jennifer compiles the packet.<br />
+<br />
+<h1 id="toc0"><a name="Update .mxd"></a><span style="background-color: #ffffff;">Update .mxd</span></h1>
+ <hr />
+\\oakland\pwa\Transportation\Bike-Ped_Program\Projects\!Tracking\design-status-map\Bikeways_CurrentStripingSignage.mxd<br />
+<br />
+1. Ask Jennifer/Jason to confirm that that Access Database table &quot;qBikewaysCurrentGIS&quot; query of<br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\bikeways\Segments-database\BikewaySegments.accdb<br />
+has been updated with the most recent bikeway information. Copy and paste the entire query into<br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\data_share\Current-Geodatabase\Linked_Tables\OaklandBikewayNetwork_current.xls<br />
+<ol><ol><li><span style="background-color: #ffffff;">In the new .xls, run the Macro. This Macro replaces the numbers listed for Bikeway Class (1, 2, 3, etc.) with descriptive names (bike path, bike lane, bike route).</span><ol><li><span style="background-color: #ffffff;">To run the macro you should enable the developer tab by going to File &gt; Options &gt; Customize Ribbon and check the Developer box then press OK</span></li><li><span style="background-color: #ffffff;">Then go to the Developer tab and click Macros the click on the Macro &quot;NetwrkMacro.xls!NetworkConversion and click Run.</span></li><li><span style="background-color: #ffffff;">Save the resulting updated bikeway network</span></li></ol></li></ol></ol><br />
+2. Open the .mxd file which should include:<br />
+<ul><li>Striping Status (from the Bikeways layer, symbolized by Striping Status)</li><li>Signage Status (from the Bikeways layer, symbolized by Signage Status)<ul><li>Make sure the Signage Status 'Installed' does not include streets with numbered bike route signs (SG45s) by symbolizing by Multiple Attributes, making the first Value Field 'SignageStatus' and the second 'SignType' and group by installed, designed, and in design, exclude 'installed, SG45' from the installed group.</li></ul></li><li>Bikeways (symbolized by existing class, excluding 0 in black and proposed class, excluding 0 in grey)</li><li>Priority Project Status (symbolized as yes = 'yogo blue' size 8pt, 50% transparency)<ul><li>Do not include projects that have already been striped by going to the Priority Project Status Layer Properties, go t Definition Query, and type: &quot;Sheet1$.StripingStatus&quot; = '' OR &quot;Sheet1$.StripingStatus&quot; = 'designed' OR &quot;Sheet1$.StripingStatus&quot; = 'in design'</li></ul></li><li>Adjacent Bikeways</li></ul><br />
+(If any of these are not already in the mxd, you can add the Bikeway Network layer from the Oracle Server and symbolize as it's described below.)<br />
+<br />
+<em><span style="line-height: 1.5;">See details on the symbology and other map layout elements below.</span></em><br />
+<br />
+<span style="line-height: 1.5;">3. Confirm that the &quot;Striping Status&quot;, &quot;Sign Projects&quot;, &quot;Other Existing Bikeways&quot; and &quot;Other Proposed Bikeways&quot; layers are joined to &quot;Sheet1$&quot; (the sheet in OaklandBikewayNetwork_current.csv). You should not have to rejoin the database table to the layer, as once there is a join relationship, the layer will update automatically. If it is not already, join to the table you just updated at: </span><br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\data_share\Current-Geodatabase\Linked_Tables\OaklandBikewayNetwork_current.csv<br />
+<br />
+<br />
+<span style="line-height: 1.5;">4. Change the date in the map title.</span><br />
+<br />
+5. Set bookmark to citywide extent. Export the map to a PDF and save in \\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-project_tracking\design-status-map\Completed Projects Status Maps, Name file with date of map (example: &quot;Bikeways_CurrentStripingSignage-10-2013.pdf&quot;)<br />
+<br />
+6. Spot check for errors, particularly missing or mis-labeled segments. If everything looks good, print an 11 x 17 map using the color printer.<br />
+<br />
+<br />
+<br />
+<h3 id="toc1"><a name="Update .mxd--Symbology and other map element details"></a><span style="background-color: #ffffff; font-size: 1.4em; line-height: 1.5;">Symbology and other map element details</span></h3>
+ <hr />
+<strong>Striping Status Layer</strong><br />
+Symbolize using the Bikeways Layer, copied and displaying only 'Striping Status' from the attribute table.<br />
+<ul><li>Installed (Width 2, Peacock Green) /Advanced Symbol Level 1</li><li>Designed (Width 2, Medium Olivenite) /Advanced Symbol Level 2</li><li>In Design (Width 2, RGB Color: R 255, G 250, B 125) / Advanced Symbol Level 2</li></ul><br />
+<strong>Signage Status Layer</strong><br />
+Symbolize using the Bikeways Layer, copied and displaying only 'Signage Status' from the attribute table.<br />
+<ul><li>Installed (Width 1.25 x2 lines: First line offset 1.5/ Second line offset -1.5)</li><li>Designed (Width 1.25 x2 lines: First line offset 1.5/ Second line offset -1.5 /Template (dashed line):</li><li>7 shaded black, gray square 10 unites away, Interval 1.00)</li><li>In Design (Width .80 x2 lines: First line offset 1.5/ Second line offset -1.5 /Template (dashed line):</li><li>5 shaded black, gray square 9 units away, Interval 1.00)</li></ul><br />
+<strong>Bikeways Layer</strong><br />
+Proposed Bikeways: Change layer name to &quot;Other Proposed Bikeways.&quot;<br />
+<ul><li>Symbolize by &quot;ProposedClass&quot; (NOT &quot;PROPOSEDCL&quot;), excluding 0 and 4. (Width 1.0, color 40% Gray)</li></ul><span style="display: inline !important;">Existing Bikeways: Change layer name to &quot;Other Existing Bikeways.&quot;</span><br />
+<br />
+<ul><li>Symbolize by &quot;ExistingClass&quot; (NOT &quot;EXISTINGCL&quot;), excluding 0 and 4. (Width 1.0, color Black)</li></ul><br />
+<strong>Priority Project Layer</strong><br />
+Symbolize by &quot;PriorityProject&quot; - &quot;yes&quot; ('yogo blue' Width 8.0)<br />
+Right click on the &quot;Priority Project Status&quot; layer then click properties then click the Display tab and make the transparency 50%.<br />
+<br />
+<strong>Other Map Elements</strong><br />
+<ul><li><u>North Arrow:</u> ESRI North 27</li><li><u>Legend:</u> \\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-project_tracking\design-status-map\legend2_without_wayfinding2.png<ul><li>If there are edits to the map that affect the legend, the legend can be edited in Illustrator, saved as a .png or .jpg (at the highest resolution) and added to the map in ArcMap in the Layout view by clicking &quot;Insert&quot; then &quot;Picture&quot; then directing to the file you saved.</li><li>Illustrator version of the legend can be found at: \\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-project_tracking\design-status-map\legend2_without_wayfinding2.ai</li></ul></li><li><u>I &lt;bike&gt; Oakland logo</u>: Lower right-hand corner of the map. Data Driven image may be turned off. If so, click on the logo area in Layout View, and toggle to the &quot;simple path&quot; button. Check to see the path leads to &quot;i-bike-logo-footer.png&quot; and correct this using the browse feature if it doesn't.</li><li>\\oakland\pwa\Transportation\Bike-Ped_Program\Outreach\Graphics\logos\BPFP-logos\i-bike-logo-footer_DOT.png</li><li>Heading: Top right-hand corner of the map. Should read: Design Status of Bikeway Projects, Day Month Year</li></ul>
+    </div>
+  </body>
+</html>

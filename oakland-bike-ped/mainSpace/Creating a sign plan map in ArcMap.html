@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Creating a sign plan map in ArcMap</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">This page explains how to edit the sign plan mxd template to create the <a class="wiki_link" href="Preliminary%20Project%20Map.html">Preliminary Project Map</a>, part 35% of the <a class="wiki_link" href="Sign%20Plan%20Process.html">sign planning process</a>.It follows adding new records to the signage Access database (</span><a href="http://oakland-bike-ped.wikispaces.com/Project+Map+-+Sign+Plan">http://oakland-bike-ped.wikispaces.com/Project+Map+-+Sign+Plan</a>) and precedes exporting the map and editing it in Illustrator.<br />
+<br />
+<h3 id="toc0"><a name="x--Overview"></a><strong>Overview</strong></h3>
+ <ul><li>Open \\oakland\pwa\Transportation\Bike-Ped_Program\GIS\signage\sign_plan-template.mxd in ArcMap and save a copy for the new corridor in its respective corridor folder</li><li>The mxd template includes a north arrow, scale, and the signage layer with dots and labels symboloized. The instructions below explain how to do this, but it may not be needed for each project.</li><li>You may need to insert the WayfindingDestinations_Points and Wayfinding_Destinations_Polygons layer from the master geodatabase and join to \\oakland\pwa\Transportation\Bike-Ped_Program\Design_Guidance-Oakland\3-Wayfinding-Guidance\Design_Guidelines\INDD\figure1-destinations.csv and the bikewaysnetwork layer from the Progdiso database and join to<br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\data_share\Current-Geodatabase\Linked_Tables\OaklandBikewaySigns_current.xls.</li><li>Each mxd will have two layers to differentiate between the project under development and other signs.</li><li>Signage layer dots and labels are grey (RGB values 178-178-178) and project sign dots and labels are green (RGB values 13-108-83). Color values can be changed using the Color Selector. Both dots and labels have a black outlines (0.5). Dots are size 4. Labels use 8pt Gil Sans MT in white.For projects with new regulatory or warning signs, see <a href="http://oakland-bike-ped.wikispaces.com/Style+Guide+for+Sign+Installation+Project+Map">http://oakland-bike-ped.wikispaces.com/Style+Guide+for+Sign+Installation+Project+Map</a>.</li><li>The label creation process is detailed below as well as the final steps before exporting to Illustrator.</li></ul><br />
+<img src="files/Color.PNG" alt="Color.PNG" title="Color.PNG" /><br />
+<br />
+<h3 id="toc1"><a name="x--Create and symbolize"></a><strong>Create and symbolize</strong></h3>
+ <ul><li>Symbolize the signage layer using 4 pt grey dots.</li><li>Make a copy of the signage layer that will be constrained to symbolize only the project (“project layer”.) Rename it intuitively (for you).</li><li>Go to the Symbology tab of the project layer. In the left panel, select Categories, and Unique values.</li><li>Find the project corridor by selecting “Corridor” in the value field and adding values. Symbolize only the project corridor using a 4 pt green dot.</li></ul><br />
+<h3 id="toc2"><a name="x--Outline your corridor with a dotted line"></a>Outline your corridor with a dotted line</h3>
+ <ul><li>Select your corridor and make it a layer.</li><li>Use the measure tool to find a good distance from your corridor for the outline</li><li>Go to Geoprocessing &gt; Buffer to select the buffer tool.</li><li>Select you selection.</li><li>Make a new name for your buffer.</li><li>Put in the number of feet you decided using the measure tool.</li><li>Select disolve all.</li><li>Hit OK.</li><li>Select the layer and symbolize as no fill and outline dashed 4:4 under the Esri Styleguide options.</li><li>Copy the buffer to all data frames.</li></ul><br />
+<h3 id="toc3"><a name="x--Label the signage layer"></a><strong>Label the signage layer</strong></h3>
+ <ol><li>Double-click on signage layer, and go to the Labels tab (Figure 1).</li><li>Click checkbox for Label feature in this layer (Figure 1).</li><li>Select Label all the features the same way (Figure 1).</li><li>Click on the Expression button, and paste in the following: <span style="background-color: #edd81e;">[signage.Id]&amp; vbnewline&amp; [SignMsgLine1]&amp; vbnewline&amp; [SignMsgLine2]&amp; vbnewline&amp; [SignMsgLine3]</span></li><li>Click on Symbol, Edit symbol, Advanced text. Click the Text Background checkbox and click the Properties button.</li><li>Select the first Balloon callouts and click the Symbol button (Figure 2).</li><li>Select the grey fill color and a 0.5 outline width, black (Figure 3).</li><li>Hit ok, and make sure this final dialog has the desired size, color, and font (Figure 4).</li><li>Hit okay and your map should populate with grey callouts (Figure 5).</li></ol><br />
+
+
+<table class="wiki_table">
+    <tr>
+        <td><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig1.png" alt="Fig1.png" title="Fig1.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 1</td></tr></table><br />
+</td>
+    </tr>
+    <tr>
+        <td><h1 id="toc4"><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig2.png" alt="Fig2.png" title="Fig2.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 2</td></tr></table></h1>
+</td>
+    </tr>
+    <tr>
+        <td><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig3.png" alt="Fig3.png" title="Fig3.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 3</td></tr></table><br />
+</td>
+    </tr>
+    <tr>
+        <td><h1 id="toc5"><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig4.png" alt="Fig4.png" title="Fig4.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 4</td></tr></table></h1>
+</td>
+    </tr>
+    <tr>
+        <td><h1 id="toc6"><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig5.png" alt="Fig5.png" title="Fig5.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 5</td></tr></table></h1>
+</td>
+    </tr>
+</table>
+
+<br />
+<h3 id="toc7"><a name="x--Label the project layer"></a><strong><span style="font-size: 1.4em;">Label the project layer</span></strong></h3>
+ This process is very similar to that for the signage layer. The differences are creation of a new class name, a SQL query, and the color of the sign lablels (green).<br />
+<br />
+<ol><li>Double-click on project layer, and go to the Labels tab (Figure 6).</li><li>Select “Define classes of features and label each feature differently” (Figure 6).</li><li>Define the class by clicking on the Add button and typing in a name. The name does not need to exactly match the corridor name in the database.</li><li>Click the SQL Query button. Paste in the following, substituting the corridor name from the database for YOUR CORRIDOR (Figure 7)</li></ol><span style="background-color: #f5eb0b;">Corridor = ‘YOUR CORRIDOR’ AND SignType = 'Confirmation' OR Corridor = ‘YOUR CORRIDOR’ AND SignType = 'Decision' OR Corridor = ‘YOUR CORRIDOR’ AND SignType = 'Turn'</span><br />
+<br />
+Follow steps 4-9 above from the signage layer labeling above (except use green).<br />
+
+
+<table class="wiki_table">
+    <tr>
+        <td><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig6.png" alt="Fig6.png" title="Fig6.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 6</td></tr></table><br />
+</td>
+    </tr>
+    <tr>
+        <td><table class="captionBox" style="float: left;"><tr><td class="captionedImage"><img src="files/Fig7.png" alt="Fig7.png" title="Fig7.png" align="left" /></td></tr><tr><td class="imageCaption">Figure 7</td></tr></table><br />
+</td>
+    </tr>
+</table>
+
+<h3 id="toc8"><a name="x--Sign Label Placement Tips"></a>Sign Label Placement Tips</h3>
+ <hr />
+For Tips on how to change the placement of your sign labels, go to the following wiki:<br />
+<a href="http://oakland-bike-ped.wikispaces.com/Label+Placement+Tips">http://oakland-bike-ped.wikispaces.com/Label+Placement+Tips</a><br />
+<br />
+<h3 id="toc9"><a name="x--Set up viewports, extents, and rotation"></a>Set up viewports, extents, and rotation</h3>
+ <ul><li>Once the labeling is completed, zoom to the project corridor.</li><li>Think about how best to show the corridor on one 11 x 17 sheet. This may involve creating two (or more) viewports; consult other similar project maps for ideas.</li><li><span style="color: #d91751;">NEED TO ADD SOMETHING ABOUT COMMONLY USED SCALE FOR THIS MAP.</span></li><li>To adjust the rotation, right click thde data frame and select ‘Properties‘.</li><li>In the 'General’ tab in the Data Frame Properties window and near the bottom, change the value of ‘Rotation’</li><li>The template is labeled based on the OaklandStreets layer, but this can be changed if desired.</li><li>Once the map layout is complete, export to Illustrator; <a class="wiki_link" href="Project%20Map%20-%20Sign%20Plan#x--Export%20Map%20to%20Illustrator">http://oakland-bike-ped.wikispaces.com/Project+Map+-+Sign+Plan#x--Export Map to Illustrator</a>.</li></ul>
+    </div>
+  </body>
+</html>

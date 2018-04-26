@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - ArcGIS Online Signage, Parking, and Counts Webmap Update</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The Bike Program's public-facing web map shares the status of existing bicycle facilities (bikeways, signs, counts, and racks). The map also features pop-up windows that include photos of existing bike parking and bike signs. First launched in September 2016, the map should be updated every six months in January and July. This wiki requires an understanding of the relationship between the various relevant Access databases as well as ArcGIS and some intermediate-level Excel functions.Files for this project are stored at Bike-Ped_Program\GIS\ArcGISOnline-webmap.</span><br />
+<br />
+<br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"> The process for updating the map is as follows:</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"> <strong>1.</strong> <strong>Create New Project Folder in the ArcGIS-Online Webmap Folder</strong></span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The folder can be found here:</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"><a class="wiki_link_ext" href="file://oakland/pwa/Transportation/Bike-Ped_Program/GIS/ArcGISOnline-webmap" rel="nofollow">\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\ArcGISOnline-webmap</a></span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">The created folder should say the month and year of the update, example: May_2017</span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">While you could make new edits in the online map, it's better to upload a new zip every time.</span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">2. Open Access and Create an Excel File</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">This step is done for each of the Layers that are updated (Signage, Parking, and Counts)</span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">First check with Jennifer to see that the access database is up to date. Meaning that the newest and most recent iteration of the database is being used. (Although for signage, signs for which the destinations are being replaced will say installed when really their newest iteration is not). Secondly export the Database as an excel file, this excel file will eventually be used to join with its corresponding Shapefile.</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">In the Excel file you made above, create a Photos column. In the Photos column add the links to the photos on the web. </span><span style="font-family: Arial,sans-serif; font-size: 13.3333px;">Photos are stored on Oaklandbikemaps.info server. If new photos are to be added, talk to Jennifer about adding them to our hosted server. Bike rack and sign photos are stored as .jpg files named by their Access database ID#. These files must have a lower-case suffix (.jpg not JPG). (You can use Ctrl + F then click replace to change these if necessary.)</span><br />
+<br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">I copied the photos column from the database and used &quot;Find &amp; Select&quot; then &quot;Go to Special&quot; then click 'Blanks&quot; then &quot;Okay&quot; and then type &quot;no_photo.jpg&quot; then Ctr+Enter on the photos column to get it to autofill all the racks with no photo. Then I copied the beginning of the web link &quot;</span><a class="wiki_link_ext" href="http://www.oaklandbikemaps.info/bikeparking/" rel="nofollow">http://www.oaklandbikemaps.info/bikeparking/</a>&quot; for bike parking and used the =CONCATENATE function to get the two to combine into one link. Then copy the values of the links to another column and delete the extraneous columns. Save it in the new project folder you made in step 1.<br />
+(Look at <a class="wiki_link_ext" href="https://www.extendoffice.com/documents/excel/2521-excel-if-cell-blank-then-enter-display-text.html" rel="nofollow">https://www.extendoffice.com/documents/excel/2521-excel-if-cell-blank-then-enter-display-text.html</a> if you need help filling in the blanks with no_photo.jpg.)<br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Use the current Map’s Excel file format as examples:</span><br />
+<ol><li>Counts: <span style="font-family: Arial,sans-serif; font-size: 13.3333px;"><a class="wiki_link_ext" href="file://oakland/pwa/Transportation/Bike-Ped_Program/GIS/counts/counts_webMap/ArcGIS%20Online%20Webmap/ArcGIS_Online_Counts.csv" rel="nofollow">\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\counts\counts_webMap\ArcGIS Online Webmap\ArcGIS_Online_Counts.csv</a></span></li><li><span style="font-family: Arial,sans-serif; font-size: 10pt;">Bike Parking: <u><span style="color: #0000ff;"><a class="wiki_link_ext" href="file://oakland/pwa/Transportation/Bike-Ped_Program/GIS/ArcGISOnline-webmap/May_2017/Bike%20Parking_ALL.csv" rel="nofollow">\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\ArcGISOnline-webmap\May_2017\Bike Parking_ALL.csv</a></span></u> In the excel file for bike parking, add a column for Business Address and use the =CONCATENATE function to combine the two parts of the address into one column.</span></li><li><span style="font-family: Arial,sans-serif; font-size: 10pt;">Signage: </span><a class="wiki_link" href="__oakland_pwa_Transportation_Bike-Ped_Program_GIS_ArcGISOnline-webmap_July_2017_signage_with_arrows.xlsx.html">\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\ArcGISOnline-webmap\July_2017\signage_with_arrows.xlsx</a> <span style="font-family: Arial,sans-serif; font-size: 10pt;">In the excel file for signage, change the sign types Turn, Confirmation, and Decision all to &quot;Wayfinding&quot; to code them all the same in the online map using the replace function (Ctrl + F then click replace and substitute &quot;Turn&quot;, &quot;Confirmation&quot; and &quot;Decision&quot; for &quot;Wayfinding&quot;. ArcGIS online does not like the &lt; and &gt; symbols. We changed them to arrow symbols like this &quot;</span>→&quot;, &quot;↑&quot;, and &quot;←&quot;. You can find the arrow symbols by clicking the Insert tab at the top of the page then the Symbol button on the right. Then use replace by pressing<span style="font-family: Arial,sans-serif; font-size: 10pt;"> Ctrl + f then clicking replace and replace &quot;&lt;&quot; with &quot;</span>←<span style="font-family: Arial,sans-serif; font-size: 10pt;">&quot; etc. You must save the file as a Unicode .txt file and import the .txt file. If you don't do all this, the records will not appear when others view the online map even if you can see them.</span></li></ol><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Here is an example of a photo link for each map:</span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Bike Parking: <a class="wiki_link_ext" href="http://www.oaklandbikemaps.info/bikeparking/1.jpg" rel="nofollow">http://www.oaklandbikemaps.info/bikeparking/1.jpg</a></span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Signage: <a class="wiki_link_ext" href="http://www.oaklandbikemaps.info/bikesignage/7.jpg" rel="nofollow">http://www.oaklandbikemaps.info/bikesignage/7.jpg</a></span><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Counts: <a class="wiki_link_ext" href="http://www.oaklandbikemaps.info/counts/location_pdf/3.pdf" rel="nofollow">http://www.oaklandbikemaps.info/counts/location_pdf/3.pdf</a></span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Once you've formatted correctly, save as a CSV or for Signage you may need to save as Unicode TXT because of the symbols.</span><br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">3. Open ArcMap</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Open ArcMap and add the shapefile that you are looking to update (Signage, Parking, or Counts). These shapefiles can be found on the Oracle Server. If shapefiles are not up to date, see </span><a class="wiki_link" href="Update%20Bike%20Parking%20and%20Signage%20GIS%20Layers%20After%20Field%20Work">http://oakland-bike-ped.wikispaces.com/Update+Bike+Parking+and+Signage+GIS+Layers+After+Field+Work</a> for information on how to update.<br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">4. Join Excel File</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Take the Excel file that you created in Step 2 and join the csv you made in step 2 to the Shapefile.</span><br />
+<br />
+<strong>5. Export the Shapefile</strong><br />
+If there isn't already a folder, make one titled Month_Year in \\oakland\pwa\Transportation\Bike-Ped_Program\GIS\ArcGISOnline-webmap. Go back to ArcMap and right click on the layer, scroll to &quot;Data&quot; and click &quot;Export Data&quot; and browse to save in the folder you just created. Then go back to the folder in finder, select all the parts of the layer, right click and go to &quot;Send to&quot; and then &quot;Compressed (zipped) folder&quot; to zip them. You may now delete the parts of the layer outside of the zipped folder.<br />
+<br />
+<strong><span style="font-family: Arial,sans-serif; font-size: 10pt;">6. Add the Shapefile to ArcOnline Map</span></strong><br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">Go to </span><a class="wiki_link_ext" href="http://oakgis.maps.arcgis.com" rel="nofollow">http://oakgis.maps.arcgis.com</a> and log in as Jennifer. Click on My Content. Find the map you are working on and open in Map Viewer. Click &quot;Add&quot; &gt; &quot;Add Layer From File&quot; and find the zipped folder you created. For parking add it twice to symbolize one layer as Oakland Owned Racks and the other as Facilities installed by Others. For the Bike Parking Map, you also have to add a new Existing Bikeways layer as it doesn't automatically update the layer.<br />
+<br />
+<strong>9. Copy Symbology and Pop-Up Configuration and Save</strong><br />
+Once you’ve uploaded the new updated layers, copy the symbology from an existing layer and copy the design of the pop-up windows to match the old layer by opening the old version and comparing.<br />
+The symbols can be found under the SHAPE tab then dropdown to Custom Images or if they aren't there, they're at <a class="wiki_link_ext" href="http://www.oaklandbikemaps.info/img/" rel="nofollow">http://www.oaklandbikemaps.info/img/</a><br />
+Delete the old layer and rename the new layer with the proper name.<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"><strong><u>MAKE SURE TO</u></strong> save the map before closing the webpage (on top toolbar)</span><br />
+<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;"><strong>10. Tell Jennifer</strong> to compress the .gdb at</span><br />
+\\oakland\pwa\Transportation\Bike-Ped_Program\GIS\data_share\Current-Geodatabase<br />
+<span style="font-family: Arial,sans-serif; font-size: 10pt;">and upload to City website, replacing asset </span>OAK045599.zip.<br />
+<br />
+<span style="display: block; text-align: center;"><br />
+</span>
+    </div>
+  </body>
+</html>

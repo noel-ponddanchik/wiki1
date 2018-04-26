@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Mailing List</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="display: block; text-align: center;"><span style="display: block; text-align: center;"><strong><span style="font-size: 14pt;">GIS to Mailing List How-to</span></strong></span></span><br />
+This is to develop a mailing list for a bikeway project mailer. In addition to a list in Excel format, this process will document the mailing area for future reference.<br />
+<br />
+1. Open <a class="wiki_link_ext" href="file://oakland/pwa/Transportation/Bike-Ped_Program/Outreach/Mailers/mailing-list-map.mxd" rel="nofollow">\\oakland\pwa\Transportation\Bike-Ped_Program\Outreach\Mailers\mailing-list-map.mxd</a>.<br />
+<br />
+2. Select street segments from the “GISADMIN.OaklandStreets” layer. This is more easily done when you isolate the layer by making it the only selectable layer; to do this right click on the layer&gt;<em>Selection</em>&gt;<em>Make This the Only Selectable</em> Layer.<br />
+3. In Data view, use the Select Features arrow tool <img src="files/arrow.JPG" alt="arrow.JPG" title="arrow.JPG" /> (the <em>Select by Rectangle</em> option works well) to select your bikeway segment(s) from the GISADMIN.OaklandStreets layer (using shift&gt;click or other method to select multiple line segments).<br />
+<br />
+4. Go to the Selection in the top menu, Select by Location, and select features from these two layers: (1) GISADMIN.AC_PARCELS_2016 and (2) GISADMIN.VWPARCELAPNADDRESS_APTBackfill. (If 2016 sounds old at the time you are reading this, you should probably ask if there are more current parcel layers available.)<br />
+<br />
+5. Using source layer GISADMIN.OaklandStreets, create a 400 ft buffer as shown below.<br />
+<br />
+<img src="files/selection.JPG" alt="selection.JPG" title="selection.JPG" /><br />
+<br />
+5. Take a screen shot/snip of the map showing the highlighted parcels. Save it as a .jpg in the project's outreach folder to document the mailing area. Create a bookmark in the .mxd for this mailing list.<br />
+<br />
+6. Open the Attribute table of each of the parcel layers. Export selected records to .dbf format (dBase tables). At the Export Data window (seen below), click on the file icon to the right of the Output table to save table (dbf format, dBase Table in the &quot;Save as Type&quot; drop-down menu. Save tables in the folder described in the previous step (Bikeways-Striping&gt;Outreach).<br />
+<img src="files/export.JPG" alt="export.JPG" title="export.JPG" /><br />
+<br />
+9. Open each .dbf in Excel. Prepare each sheet to be combined into a single list by (1) using the same headers for the columns and putting them in the same order (Street #, Street, Unit, City, Zip) and (2) deleting unneeded columns. Combine the two into one .csv file and retitle into a new tab called “final” (or similar).<br />
+<br />
+10. Remove erroneous addresses and duplicates:<br />
+<ul><li>In the Address field, search and replace for “AVE”—change to “AV” and for “BLVD” change to “BL.” Scan the data to see if there are other possible duplicate suffixes. (If desired, you can change AV back to AVE—but you can’t do this in the other order. Try it and weep!)</li><li>Go to Data, Remove Duplicates. All fields should be checked. This should remove duplicates / bad data, but scan the data to check.</li><li>Delete all rows where the address number is &quot;0.&quot;</li></ul><br />
+11. Clean up the list and finalize.<br />
+<ul><li>Sort by Unit. Add a column called “comma.” For lines with an entry in the unit field, enter a comma followed by a space, followed by a pound sign.</li><li>Select the City column, search on Oakland and replace with Oakland, CA.</li><li>Add a Resident column and populate it with the word Resident.</li><li>Save this spreadsheet with a name that matches the map .pdf convention in the project’s &quot;Outreach&quot; folder in the bikeway-striping directory.</li><li>Delete the original .dbf and .xml files.</li></ul>
+    </div>
+  </body>
+</html>

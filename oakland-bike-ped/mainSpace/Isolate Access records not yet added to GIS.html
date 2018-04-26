@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Isolate Access records not yet added to GIS</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+In syncing our access database to GIS layers it is essential both datasets match. This process allows us to identify points (typically for installed racks and signs) not yet added in GIS.<br />
+<br />
+To check the data do as follows:<br />
+<br />
+-copy current access table to new excel file<br />
+-export current GIS attribute table to .txt file<br />
+-add GIS .txt table to new sheet in the excel file using &quot;add text&quot; button at top left of data tab<br />
+-sort GIS layer by ID (rack id, sign id...)<br />
+-highlight and copy all GIS rows in ID field<br />
+-Paste GIS ID field to bottom of sheet containing current access data under the same ID field<br />
+-The run conditional formatting<br />
+<br />
+<br />
+<span style="background-color: #f8f8f8; font-family: &#39;Trebuchet MS&#39;,Arial,sans-serif; font-size: 13.3333px;">Use the conditional formatting feature to highlight all duplicate rows, then filter by cell color from the right click menu, then delete rows from the right click menu:</span><br />
+<br />
+<span style="background-color: #f8f8f8; font-family: &#39;Trebuchet MS&#39;,Arial,sans-serif; font-size: 13.3333px;">1. Select all items</span><br />
+<span style="background-color: #f8f8f8; font-family: &#39;Trebuchet MS&#39;,Arial,sans-serif; font-size: 13.3333px;">2. Conditional Formatting -&gt; Highlight cell rules -&gt; Duplicate Values -&gt; OK</span><br />
+<span style="background-color: #f8f8f8; font-family: &#39;Trebuchet MS&#39;,Arial,sans-serif; font-size: 13.3333px;">3. Right click in selection -&gt; Sort -&gt; Sort by selected cell's color</span><br />
+<span style="background-color: #f8f8f8; font-family: &#39;Trebuchet MS&#39;,Arial,sans-serif; font-size: 13.3333px;">4. Right click in selection -&gt; Delete Row -&gt; OK</span><br />
+<br />
+-once conditional formatting is run sort by color to isolate the non duplicates that then should be added or deleted from GIS<br />
+:)
+    </div>
+  </body>
+</html>

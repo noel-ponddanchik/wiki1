@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Using GIS to Quantify Bike Parking Spaces Near Transit</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">Surveys that track bicycle infrastructure often ask questions about how many bike parking capacity is near transit hubs. Below are some tips on how to answer these questions using our GIS resources.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#x1. Create Buffer Around Transit-Related Wayfinding Destinations">1. Create Buffer Around Transit-Related Wayfinding Destinations</a></div>
+<div style="margin-left: 3em;"><a href="#x1. Create Buffer Around Transit-Related Wayfinding Destinations--Data sources for the following transit modes">Data sources for the following transit modes</a></div>
+<div style="margin-left: 1em;"><a href="#x2. Calculate Number of Bike Parking Spaces">2. Calculate Number of Bike Parking Spaces</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="x1. Create Buffer Around Transit-Related Wayfinding Destinations"></a><span style="background-color: #ffffff;">1. Create Buffer Around Transit-Related Wayfinding Destinations</span></h1>
+ <hr />
+<ol><li><span style="font-size: 13px; line-height: 1.5;">To create a buffer in ArcGIS, press </span><strong><span style="font-size: 13px; line-height: 1.5;">ctrl+f </span></strong><span style="font-size: 13px; line-height: 1.5;">to open arc's search function.</span></li><li><span style="font-size: 13px; line-height: 1.5;">Type <strong>buffer</strong> in the search bar and click the <strong>Buffer (Analysis)</strong> tool</span></li><li><span style="font-size: 13px; line-height: 1.5;">For </span><strong><span style="font-size: 13px; line-height: 1.5;">Input Features</span></strong><span style="font-size: 13px; line-height: 1.5;"> select the points representing your transit stops or </span>entrances<span style="font-size: 13px; line-height: 1.5;">, for </span><strong><span style="font-size: 13px; line-height: 1.5;">Output Feature Class</span></strong><span style="font-size: 13px; line-height: 1.5;"> name the file something </span>sensical<span style="font-size: 13px; line-height: 1.5;"> (ie bart_buffer) and then key in the desired </span><strong><span style="font-size: 13px; line-height: 1.5;">Distance</span></strong><span style="font-size: 13px; line-height: 1.5;"> of the buffer and press <strong>OK</strong></span></li></ol><br />
+<h3 id="toc1"><a name="x1. Create Buffer Around Transit-Related Wayfinding Destinations--Data sources for the following transit modes"></a><span style="font-size: 13px; line-height: 1.5;"><strong>Data sources for the following transit modes</strong></span></h3>
+ <ul><li>Amtrak: Use the WayfindingDestinations located in \\oakland\pwa\Transportation\Bike-Ped_Program\GIS\master.gdb, <strong>Select by</strong> <strong>Attributes</strong> : SignName = '[am] Coliseum' OR SignName = '[am] Jack London'. Right click on the <span style="font-size: 12.7272720336914px;">WayfindingDestinations </span><span style="font-size: 13px; line-height: 1.5;">layer in the </span><strong><span style="font-size: 13px; line-height: 1.5;">table of contents</span></strong><span style="font-size: 13px; line-height: 1.5;">, </span><strong><span style="font-size: 13px; line-height: 1.5;">Selection &gt; Create Layer from selection</span></strong><span style="font-size: 13px; line-height: 1.5;"> to make a layer with just the oakland amtrak stations. Note: if </span></li><li>AC Transit: <a class="wiki_link" href="AC%20Transit%20Bus%20Stops.html">Bus Stop Information</a></li><li>BART: There are up to date KML and KMZ files available <a class="wiki_link_ext" href="http://www.bart.gov/schedules/developers/geo" rel="nofollow" target="_blank">here</a>. They will have to be converted to a layer, instructions are <a class="wiki_link_ext" href="http://resources.arcgis.com/en/help/main/10.2/index.html#//00120000004w000000" rel="nofollow" target="_blank">here</a>. Or use the layer created 12/2014 located here: \\oakland\pwa\Transportation\Bike-Ped_Program\GIS\parking\Bart.</li></ul><br />
+<h1 id="toc2"><a name="x2. Calculate Number of Bike Parking Spaces"></a><span style="background-color: #ffffff;">2. Calculate Number of Bike Parking Spaces</span></h1>
+ <hr />
+<ol><li>Use the bike parking shp file caled <strong>parking</strong> located here: <span style="font-size: 12.7272720336914px;">\\oakland\pwa\</span>Transportation\Bike-Ped_Program\GIS\master.gdb</li><li>Join this layer to the <strong>tBikeParking</strong> table located in the <strong>BikeParking.accdb</strong> database. <a class="wiki_link" href="Connect%20to%20a%20Microsoft%20Access%20Database%20in%20ArcGIS.html" target="_blank">Information for connecting to this database</a></li><li><strong>Select by Attributes</strong> : Status = 'Installed'</li><li><span style="font-size: 12.7272720336914px;">Right click on the <strong>parking</strong> </span><span style="font-size: 13px;">layer in the </span><strong><span style="font-size: 13px;">table of contents</span></strong><span style="font-size: 13px;">, </span><strong><span style="font-size: 13px;">Selection &gt; Create Layer from selection</span></strong><span style="font-size: 13px;"> to make a layer with just the installed bike racks</span></li><li>Using the buffers you have created <strong>Select by Location</strong></li><li><strong>Selection method: '</strong>select features from'; <strong>Target layer:</strong> pick your layer with the installed bike racks; <strong>Source layer:</strong> pick your transit buffer; press <strong>OK</strong></li><li><span style="font-size: 12.7272720336914px;">Right click on the installed bike racks </span><span style="font-size: 13px;">layer in the </span><strong><span style="font-size: 13px;">table of contents, </span></strong>click <strong>Open Attribute Table,</strong> then press <strong>Show selected records</strong></li><li><span style="font-size: 13px;">In the table scroll to the <strong>BikeCapacity</strong> column and right click, select <strong>Statistics</strong> and look at the <strong>Sum</strong> to see the total amount of bike parking spaces that fall within the buffer</span></li></ol>
+    </div>
+  </body>
+</html>

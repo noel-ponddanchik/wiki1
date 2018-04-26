@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Create field verification list for signage cleaning and maintenance</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1></div>
+<br />
+</span><br />
+<br />
+<br />
+<span style="background-color: #ffffff;"> The bike program uses volunteers to inspect previously installed signs based along wayfinding signage corridors. To facilitate the field work, a template linked to the sign database is used to generate an inspection form by corridor. </span><br />
+<br />
+<br />
+Create and print template<br />
+<br />
+<ol><li>In <em>WayfindingSigns</em> access database, select desired corridor and any other signs to be included. Make sure all columns are visible.</li><li>Copy and paste desired corridor data into an Excel sheet. Update the sort order to reflect the likely field work order. For now, make sure the column headings in signsToVerify-columns are in the spreadsheet (some are no longer in the database). Data is only necessary for the columns through Sign Message 3. Note that the Photos column is now the last column.</li><li>Move the Photos column data to the last spreadsheet column and enter \\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-signage\SignPhotos\ in every column cell.</li><li>Create new column ‘@IMAGE to the right of ID column.</li><li>In the new column, enter: =CONCATENATE(“AD2,A2,&quot;.jpg&quot;) and copy down to the rest of the column. The resulting cell content will be \\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-signage\SignPhotos\xxx.jpg</li><li>Create a project specific folder in \\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-signage\3-signs-to-fix-or-document\verification (based on the corridor name, e.g. &quot;Genoa-West&quot;)</li><li>Save the Excel sheet as a CSV file in the new folder.</li><li>Open InDesign file: <span style="line-height: 1.5;">\\oakland\pwa\Transportation\Bike-Ped_Program\Projects\Bikeways-signage\3-signs-to-fix-or-document\verification\verification-template.indd</span></li><li><span style="line-height: 1.5;">Along the top menu, go to Window – Utilities – Data Merge and a new panel should pop up. Click the further options button and click “Select Data Source”. Find and select the CSV file for your corridor. The column headings from the CSV files should show up in a list</span></li><li><span style="line-height: 1.5;">Go to the data merge panel, click the drop down and select “Create merged document”.</span></li><li>Under “Records per Document Page” select “Multiple Records”.</li><li>Check “Preview Multiple Record Layout” to make sure stuff shows up.<br />
+(Above instructions excerpted from <a class="wiki_link_ext" href="http://gcostudios.com/2012/designing-and-data-merging-with-multiple-records-in-indesign-cs6/" rel="nofollow">http://gcostudios.com/2012/designing-and-data-merging-with-multiple-records-in-indesign-cs6/</a>)</li><li>If images are too large, resize each manually by selecting the ‘select’ tool (black arrow) and resizing the image box while holding SHIFT (retains scale) so that each image fits on the page.</li><li>Save file into project-specific folder</li><li>Export as PDF and save..</li><li>Double-check that photos and sign messages are matched.</li><li>Print PDF.</li></ol><br />
+<br />
+Send the volunteer to verify signage.<br />
+<br />
+<br />
+Back in the office, enter information in database, in particular:<br />
+<ul><li><span style="line-height: 1.5;">Last Verified (include for all signs inspected)</span></li><li><span style="line-height: 1.5;">Repair_Status</span></li><li><span style="line-height: 1.5;">Repair_Instructions.</span></li></ul><br />
+If a sign is missing and will not be replaced, make sure to uncheck the “Installed” checkbox, change the corridor to Z-Removed, and document observations in the Notes field.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Symbolizing Proposed Bikeways</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+In response to the many requests we get of our proposed bike lanes, this is a way to symbologize only proposed bikeways, and/or to export a layer when needed. <br />
+<br />
+-open an .mxd and add the BikewayNetwork feature class from the Oracle server<br />
+-join to the current database spreadsheet (in \\oakland\pwa\Transportation\Bike-Ped_Program\GIS\data_share\Current-Geodatabase\Linked_Tables)<br />
+-open the bikeways attribute table<br />
+-run the SQL quiery below in the &quot;select by attributes&quot; tab to isolate the data to just segments that are proposed to be installed or upgraded (use the attrributes from Linked Table current version, not the Oracle server version).<br />
+<br />
+ExistingClass &lt;&gt; ProposedClass AND ProposedClass &lt;&gt; '0'<br />
+<br />
+-once the data is selected, export the features to a new feature class in the master.gdb <strong>(see image below)</strong><br />
+-name the new feature class &quot;proposedbikewaysnew&quot;<br />
+<br />
+-<img src="files/bikeways_screenshot.jpg" alt="bikeways_screenshot.jpg" title="bikeways_screenshot.jpg" style="height: 350px; width: 386px;" /><br />
+<br />
+-once the new feature class is created copy the metadata from the old file into the new feature class.<br />
+-change the &quot;last updated&quot; date.<br />
+-delete the old feature class.<br />
+-rename the new feature class to &quot;ProposedBikeways&quot;<br />
+<br />
+Done :)
+    </div>
+  </body>
+</html>

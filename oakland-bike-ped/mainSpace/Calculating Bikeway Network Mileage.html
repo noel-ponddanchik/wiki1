@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Calculating Bikeway Network Mileage</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">Approach to calculating mileage of bikeway network that doesn't require the Access database report.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Calculate Proposed and Existing Lane Mileage">Calculate Proposed and Existing Lane Mileage</a></div>
+<div style="margin-left: 1em;"><a href="#toc1"> </a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="Calculate Proposed and Existing Lane Mileage"></a><span style="background-color: #ffffff;">Calculate Proposed and Existing Lane Mileage</span></h1>
+ <hr />
+<ul><li>In ArcGIS, perform a query on bikeways to isolate all bikeways with lanes on each side of the street<ul><li><span style="font-size: 12.7272720336914px;">this excludes oneway streets, streets with bikeways on oneside of the street, and streets with large center medians that are represented by two streets in the streets layer (i.e. Mandela Parkway)</span></li></ul></li><li><span style="font-size: 13px; line-height: 1.5;">In <strong>Select by Attribute,</strong> perform a <strong>Query</strong> on <strong>Bikeways</strong>: </span>ProposedClass IN ( '1' , '2' , '3' , '3A' , '3B' , '4') AND bikeways.ONEWAY IS NULL</li><li>In the attribute table, click <strong>Show Selected Records</strong> button, then right click on <strong>Shape_Length</strong> and click <strong>Statistics</strong></li><li>Take the <strong>Sum,</strong> which is in feet and convert it to miles (use google or divide by 5280)</li><li>Multiply this total by 2 for the lane mileage of all bikeways with lanes on both sides of the street</li><li><span style="font-size: 12.7272720336914px;">In </span><strong><span style="font-size: 12.7272720336914px;">Select by Attribute,</span></strong><span style="font-size: 12.7272720336914px;"> perform a </span><strong><span style="font-size: 12.7272720336914px;">Query</span></strong><span style="font-size: 12.7272720336914px;"> on </span><strong><span style="font-size: 12.7272720336914px;">Bikeways</span></strong><span style="font-size: 12.7272720336914px;">: </span>ProposedClass &lt;&gt; '0' AND ProposedClass = '2.1' OR bikeways.ONEWAY IS NOT NULL</li><li>right click on <strong>Shape_Length</strong> and click <strong>Statistics,</strong> take the <strong>Sum</strong> and convert to miles</li><li>Add the total from the bikeways with two lanes and those with only one for the total bikeway lane mileage</li></ul><br />
+<h1 id="toc1"> </h1>
+
+    </div>
+  </body>
+</html>

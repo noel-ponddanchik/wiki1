@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Project Management Geodatabase</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">Some helpful tips on how to maintain project tracking within ArcGIS.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Selecting Bikeway Segments by Project Polygon for Editing Field Values">Selecting Bikeway Segments by Project Polygon for Editing Field Values</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="Selecting Bikeway Segments by Project Polygon for Editing Field Values"></a><span style="background-color: #ffffff;">Selecting Bikeway Segments by Project Polygon for Editing Field Values</span></h1>
+ <hr />
+<strong>Workflow Overview:</strong><br />
+Isolate the project polygon&gt; Use this polygon to select the project's bikeway segments&gt; Apply edits<br />
+<ul><li><span style="background-color: #ffffff; line-height: 1.5;">First, double click on <strong>bikeprojectmanagement</strong> layer in the table of contents. In the <strong>Layer Properties</strong>, navigate to the <strong>Definition Query</strong> tab. </span><ul><li><span style="background-color: #ffffff; line-height: 1.5;">Click the <strong>Query Builder</strong> button, double click <strong>ProjectID</strong>, press the <strong>=</strong> button, and the <strong>Get Unique Values</strong> button. </span></li><li><span style="background-color: #ffffff; line-height: 1.5;">Double click on the project value you are interested in selecting the segments within. </span></li><li><span style="background-color: #ffffff; line-height: 1.5;">Your '<strong>SELECT*FROM bikeprojectmanagement WHERE:</strong>' query should be 'ProjectID = 5&quot; (5 being an example project polygon of interest). </span></li><li><span style="background-color: #ffffff; line-height: 1.5;">Press <strong>OK</strong>, you should now only see the project polygon of interest displayed in the map.</span></li></ul></li><li><span style="background-color: #ffffff; line-height: 1.5;">Now go to <strong>Select</strong> at the top menu bar and choose <strong>Select</strong></span><strong><span style="background-color: #ffffff; line-height: 1.5;"> By Location</span></strong><span style="background-color: #ffffff; line-height: 1.5;">. Then enter the following:</span><ul><li><span style="background-color: #ffffff; line-height: 1.5;"><strong>Selection method</strong>: select features from</span></li><li><span style="background-color: #ffffff; line-height: 1.5;"><strong>Target layer(s)</strong>: bikeways</span></li><li><span style="background-color: #ffffff; line-height: 1.5;"><strong>Source layer</strong>: bikeprojectmanagement</span></li><li><span style="background-color: #ffffff; line-height: 1.5;"><strong>Spatial selection method for target layer feature(s)</strong>: are within the source layer feature </span></li><li><span style="background-color: #ffffff; line-height: 1.5;">Press <strong>Apply</strong> and you should see the bikeway segments within the project polygon highlighted</span></li><li><span style="background-color: #ffffff; line-height: 1.5;">Click <strong>OK</strong> to exit this screen</span></li></ul></li><li>With the segments selected you can now edit field values withing the bikeways table.<ul><li>Right click the bikeways layer in the table of content and click <strong>Open Attribute Table</strong></li><li>Click <strong>Show Selected Records</strong> button to see only the highlighted segments in the table</li><li>To begin editing values in the table, go to the <strong>Editor</strong> toolbar and click <strong>Start Editing</strong>. Choose the bikeways layer.</li><li>Now you can double click any field value and change the value. Or use the <strong>Field Calculator</strong> to do batch edits</li><li>When you are done editing, go to the <strong>Editor</strong> toolbar and choose <strong>Stop Editing</strong>. Make sure to save your edits</li></ul></li></ul><br />
+<span style="display: block; height: 1px; left: 0px; overflow: hidden; position: absolute; top: 260px; width: 1px;"><br />
+<span class="idHeading">Summary</span><br />
+
+<style type="text/css"><!--
+
+-->
+</style><pre class="wrap">Complete Streets layer: bikeways joined with pci_2013</pre>
+
+<br />
+<span class="idHeading">Description</span><br />
+
+<style type="text/css"><!--
+
+-->
+</style><pre class="wrap">[[code]]
+This layer contains all bikeways joined to pci_2013. Missing road sections from pci_2013 were copied from GISADMIN.OaklandStreets.
+&lt;span style=&quot;font-size: 14pt;&quot;&gt;Data Dictionary of Bike/Ped Program Fields&lt;/span&gt;
+&lt;span style=&quot;font-weight: bold;&quot;&gt;BIKEID_1 &lt;/span&gt;: Bikeway segment ID assigned by Bike Ped Program
+&lt;span style=&quot;font-weight: bold;&quot;&gt;PrimaryBike&lt;/span&gt;: (Y/N) Y if bikeway segment is a primary route
+&lt;span style=&quot;font-weight: bold;&quot;&gt;ProposedClass&lt;/span&gt;: (0, 1, 2, 2.1, 3, 3A, 3B, 4) The proposed bikeway class*
+* No bikeway (Class 0)
+* Bike Path (Class 1)
+* Bike Lane (Class 2)
+* Bike Route (Class 3)
+* Arterial Bike Route (Class 3A)
+* Bicycle Boulevard (Class 3B)
+* Proposed bikeway designated for improvements by BMP (Class 4)
+&lt;span style=&quot;font-weight: bold;&quot;&gt;ExistingClass &lt;/span&gt;: (0, 1, 2, 2.1, 3, 3A, 3B, 4) The existing bikeway class*
+* No bikeway (Class 0)
+* Bike Path (Class 1)
+* Bike Lane (Class 2)
+* Bike Route (Class 3)
+* Arterial Bike Route (Class 3A)
+* Bicycle Boulevard (Class 3B)
+* Proposed bikeway designated for improvements by BMP (Class 4)
+&lt;span style=&quot;font-weight: bold;&quot;&gt;StripingStatus&lt;/span&gt;: (designed, in design, installed) Design and installation status of bikeway
+&nbsp;
+&nbsp;
+&lt;span style=&quot;font-weight: bold;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;font-style: italic;&quot;&gt;Extra Bikeway Class Detail&lt;/span&gt;
+Value: 0 = No bikeway
+* Description: Either no bikeway exists or no bikeway is proposed for a particular roadway segment. For Existing Class 0, the Proposed Class is generally not 0. In some instances an existing bikeway (Existing Class does not equal 0) is proposed to be removed (Proposed Class 0). Segments with both Existing Class 0 and Proposed Class 0 were analyzed as part of the 2007 Bicycle Master Plan but not included as part of the bike network.
+Value: 1 = bike path
+* Description: Provides a paved right-of-way that is completely separated from the street. Bike paths are typically shared with pedestrians and are often called mixes-use paths.
+Value: 2= bike lane
+* Description: Striped on streets and designated specifically for bicyclists. They are Oakland's preferred treatment for busy streets.
+Value: 2.1 = Bike lane on one side only
+* Description: This designation is used for one bike lane on only one side of a two-way street. Note that a one-way street with one bike lane is designated as Class 2. Class 2.1 is used to imply unfinished business - a bike lane is still needed on the street.
+Value: 3 = bike route
+* Description: Have shared travel lanes and are designated because they provide better connectivity than other nearby streets. Bike routes are designated with bikeway guide signs and may have no other bicycle-specific features. The 2007 Bicycle Master Plan proposes bike routes only in the Oakland Hills above Mountain Blvd due to the recreational nature and challenging topography of this area. The bikeways in the rest of the city are proposed for bikeways that provide a higher level of accommodation (Class 1, 2, 3B).
+Value: 3A = arterial bike route
+* Description: Located on busier streets where bike lanes are not possible and parallel streets do not provide adequate connectivity. They include sharrows and bicycle-specific signage. Arterial bike routes are used to make near-term connections in the bike network. Over time they should be replaced with better facilities (e.g., Class 2).
+Value: 3B = bicycle boulevard
+* Description: Prioritizes bicyclists on quiet residential streets with traffic calming, sharrows, and bicycle guide signs.
+Value: 4 = Proposed bikeway
+* Description: This class is an artifact of the &quot;I [bike] Oakland&quot; map to identify proposed bikeways with wide travel lanes or low traffic volumes that provide useful connections in their current form. These streets are generally proposed for Class 2 or Class 3B facilities. These Class 4 bikeways are tracked in the GIS layer as a subset of all proposed bikeways so as mileage can be computed for the cover of the &quot;I [bike] Oakland&quot; map.
+&nbsp;
+&nbsp;
+&lt;span class=&quot;idHeading&quot;&gt;Credits&lt;/span&gt;
+[[code format=&quot;wrap&quot;]]
+sadie gill</pre>
+
+</span>
+    </div>
+  </body>
+</html>

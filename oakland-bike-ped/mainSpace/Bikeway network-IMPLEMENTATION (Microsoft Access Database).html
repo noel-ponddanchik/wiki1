@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Bikeway network-IMPLEMENTATION (Microsoft Access Database)</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">This database was built for the 2007 update of the Bicycle Master Plan:</span><br />
+&quot;\\oakland\pwa\Transportation\Bike-Ped_Program\BMP\2007_Plan-IMPLEMENTATION\Bikeways\Bikeway network-IMPLEMENTATION.accdb&quot;<br />
+<br />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">It was created in concert with the first build of the GIS layer that is still in use for the proposed bikeway network. The network is composed of 800+ segments, each with uniform characteristics along its length. Roadways are divided into multiple segments where those characteristics change. As a result, roadways with uniform cross-sections have segments that are long. In comparison, some roadways change cross-section each block and thus have short segments. As field conditions change, it may be necessary to divide one segment into multiple segments in order to capture the new changes in condition. Those segments are created in the database and then ID numbers from the database are used for revised line segments in the GIS layer.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Objects">Objects</a></div>
+<div style="margin-left: 2em;"><a href="#Objects-Tables">Tables</a></div>
+<div style="margin-left: 2em;"><a href="#Objects-Queries">Queries</a></div>
+<div style="margin-left: 2em;"><a href="#Objects-Reports">Reports</a></div>
+<div style="margin-left: 1em;"><a href="#toc4"> </a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="Objects"></a><span style="background-color: #ffffff;">Objects</span></h1>
+ <hr />
+<br />
+<h2 id="toc1"><a name="Objects-Tables"></a><span style="background-color: #ffffff; font-size: 1.1em;">Tables</span></h2>
+ <ul><li>tBikeway_Segments: This is the main table of data from which almost everything else flows. See tSegmentLengths below for the other table of source data.</li><li>tLookup[…]: The 12 tables beginning with “tLookup” create predefined values and drop-down menus for key fields in the tBikeway_Segments table.</li><li>tSegmentLengths: These are lengths (in feet) of the roadway and path segments in tBikeway_Segments. The lengths are exported from GIS and matched by ID number. This table needs to be updated as segment extents are modified or added in tBikeway_Segments and the GIS layer. Additional information on this synchronization (and associated troubleshooting) is in the documentation for the timelapse map and database.</li></ul><br />
+<h2 id="toc2"><a name="Objects-Queries"></a><span style="background-color: #ffffff; font-size: 1.1em;">Queries</span></h2>
+ <ul><li>q-Bikeway_Segments-mileage: Provides the length of segments by linking &quot;tBikeway_Segments&quot; to &quot;tSegmentLengths”. It is used by the “rBikeway_Segments” report.</li><li>qBikewaySummary (and the related queries “_Divided”, “_Existing”, “_OneWay”, _OneWayOnly”, “_Proposed”, “_TwoWay”): Provides the necessary link between &quot;tBikeway_Segments&quot; and &quot;rBikeway_network_mileage_summary&quot; to produce mileage totals for existing/proposed bikeways by bikeway class.</li><li>qProject_mileage1: Associates segment mileage with the projects (composed of multiple segments) that were used in the project prioritization for the 2007 Bicycle Master Plan.</li><li>qProject_mileage2: Sums the mileage of individual project segments from &quot;qProject_mileage1&quot; into total project lengths used in the project prioritization for the 2007 Bicycle Master Plan.</li><li><span style="font-family: Calibri,sans-serif; font-size: 11pt;">qTmp: A temporary object for doing one-off queries.</span></li></ul><br />
+<h2 id="toc3"><a name="Objects-Reports"></a><span style="background-color: #ffffff; font-size: 1.1em;">Reports</span></h2>
+ <ul><li>rBikeway_network_mileage_summary: Generates existing and proposed bikeway mileage by class in two tables: one by roadway centerline miles and one by roadway directional miles. The report depends upon the following queries:<ul><li>qBikewaySummary</li><li>qBikewaySummary_Divided</li><li>qBikewaySummary_Existing</li><li>qBikewaySummary_OneWay</li><li>qBikewaySummary_OneWayOnly</li><li>qBikewaySummary_Proposed</li><li>qBikewaySummary_TwoWay</li></ul></li><li>rBikeway_Segments: Generates a summary of select fields in tBikeway_Segments for all records. The report depends upon the following query to generate mileage:<ul><li>q-Bikeway_Segments-mileage</li></ul></li></ul><br />
+<br />
+<br />
+<h1 id="toc4"> </h1>
+
+    </div>
+  </body>
+</html>

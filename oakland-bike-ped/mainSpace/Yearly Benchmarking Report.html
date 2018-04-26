@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Yearly Benchmarking Report</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">Each year we are asked to give </span>the League of American Bicyclist's updated center-line mile data about our on road bike facilities. Questions about the facilities are separate by facility type, then by speed range. Answers need to be in centerline miles - to reduce double counting, we established a hierarchy of bike facility types:<br />
+<ol><li>Cycletracks and Protected Bike Lanes</li><li>Buffered Bike Lanes</li><li>Regular Bike Lanes</li><li>Sharrows (Class 3A only)</li></ol><span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Methodology">Methodology </a></div>
+<div style="margin-left: 1em;"><a href="#Questions from 2017 (Questions answered through the use of GIS)">Questions from 2017 (Questions answered through the use of GIS)</a></div>
+<div style="margin-left: 1em;"><a href="#Select By Attribute for Each Category (Used to Determine Centerline Mileage of each type)">Select By Attribute for Each Category (Used to Determine Centerline Mileage of each type)</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+The shapefile used to determine centerline miles for each bike facility is our Level of Traffic Stress (LTS) shapefile. The shapefile is located here:<br />
+\\PWAFILE2\Transportation\Bike-Ped_Program\Projects\LTS\GIS\Shapefiles\Current<br />
+<br />
+A List of each Field Headings meanings are found in our Project Documentation (Meanings are at end of Document):<br />
+\\PWAFILE2\Transportation\Bike-Ped_Program\Projects\LTS\Admin\Project Documentation\DRAFT_OaklandLTS_ProjectDocumentation-toRonnie.docx<br />
+<br />
+<br />
+<h1 id="toc0"><a name="Methodology"></a><span style="background-color: #ffffff;">Methodology </span></h1>
+ <hr />
+<ul><li>Use bikeway definitions provided in NACTO Bikeway Design Guidelines, then on Oakland's wiki page to determine hierarchy.<br />
+- For example, we decided not to report unmarked Class 3 facilities as shared lane markings. Therefore only Class 3A was counted</li><li>Bicycle boulevards were counted but not included in the hierarchy as there wasn't any competition between the two sides of the street - they are whole-street treatments</li><li>Separate Class I facilities from all other facilities.<br />
+- The League of American Bicyclists did not ask for these numbers by speed limit as they are separated facilities.</li><li>Separate One-Way from Two-Way Facilities</li><li>Separate Buffered Bike Lanes from Bike Lanes data</li><li>We decided that wide paved shoulders would not be counted</li><li>All segments with &quot;Right&quot; Directional Buffered Bike Lanes have either Regular or Buffered Bike Lanes on the &quot;Left&quot; side. These were counted as buffered.</li><li>Some segments with &quot;Left&quot; Directional Buffered Bike Lanes have &quot;Right&quot; Facilities with Class 3, 3A, or no bike lanes. Again, these were counted as buffered.</li><li>In all instances on two-way streets where Sharrows ('3A') exist on one side of the road, the other side has sharrows or a bike lane.<br />
+- Therefore the lower total is being reported for sharrows</li><li>Special calculation was used for Class II non-buffered bike lanes to determine how to calculate.</li><li>We took the &quot;greater&quot; number for each side in all cases except for Class II facilities.<br />
+- The formula removes cases where buffered bike lanes are along the same segments as bike lanes, adds the left and right side and divides the total by 2</li></ul><h1 id="toc1"><a name="Questions from 2017 (Questions answered through the use of GIS)"></a>Questions from 2017 (Questions answered through the use of GIS)</h1>
+ <hr />
+<strong>On streets with posted speeds of ≤ 25mph, how many miles of each of the following bicycle facilities are there that meet or exceed current AASHTO or NACTO standards?</strong><br />
+Bike boulevards (# only)<br />
+Shared lane markings (not counted under Bicycle Boulevards) (# only)<br />
+Wide paved shoulders (ridable surface ≥4 feet, and minimum clear path of ≥4 feet between rumble strips) (# only)<br />
+Bike lanes (incl. standard, contra-flow, left-side) (ridable surface ≥4 feet) (# only)<br />
+Buffered bike lanes (# only)<br />
+Protected bike lanes (one-way or two-way) (# only)<br />
+Raised cycle tracks (one-way or two-way) (# only)<br />
+<br />
+<br />
+<strong>On streets with posted speeds of &gt; 25mph and ≤ 35mph, how many miles of each of the following bicycle facilities are there that meet or exceed current AASHTO or NACTO standards?</strong><br />
+Shared lane markings (# only)<br />
+Wide paved shoulders (ridable surface ≥4 feet, and minimum clear path of ≥4 feet between rumble strips) (# only)<br />
+Bike lanes (incl. standard, contra-flow, left-side) (ridable surface ≥4 feet) (# only)<br />
+Buffered bike lanes (# only)<br />
+Protected bike lanes (one-way or two-way) (# only)<br />
+Raised cycle tracks (one-way or two-way) (# only)<br />
+<br />
+<br />
+<strong>On streets with posted speeds of &gt; 35mph, how many miles of each of the following bicycle facilities are there that meet or exceed current AASHTO or NACTO standards?</strong><br />
+Wide paved shoulders (ridable surface ≥4 feet, and minimum clear path of ≥4 feet between rumble strips) (# only)<br />
+Bike lanes (incl. standard, contra-flow, left-side) (ridable surface ≥4 feet) (# only)<br />
+Buffered bike lanes (# only)<br />
+Protected bike lanes (one-way or two-way) (# only)<br />
+Raised cycle tracks (one-way or two-way) (# only)<br />
+<br />
+<h1 id="toc2"><a name="Select By Attribute for Each Category (Used to Determine Centerline Mileage of each type)"></a>Select By Attribute for Each Category (Used to Determine Centerline Mileage of each type)</h1>
+ <hr />
+First separate one way streets into a new shapefile. This can be done by running this query and exporting a new shapefile from selected features (Used for one side of street calcs).<br />
+&quot;ONEWAY&quot; = 'FT' OR &quot;ONEWAY&quot; = 'TF'<br />
+Then create a Shapefile for segments without the one-way tag (Used for both sides of street calcs).<br />
+&quot;ONEWAY&quot; = ' '<br />
+<br />
+<strong>Bike Boulevards (Class 3B):</strong><br />
+<em>L Total</em>: &quot;BIKE_FAC_L&quot; = '3B'<br />
+<em>L &lt;=25 mph:</em> &quot;BIKE_FAC_L&quot; = '3B' AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>L &gt;25 and &lt;=35 mph:</em> &quot;BIKE_FAC_L&quot; = '3B' AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>L &gt;35 mph:</em> &quot;BIKE_FAC_L&quot; = '3B' AND &quot;POSTED_SPD&quot; &gt; 35<br />
+<em>R Total:</em> &quot;BIKE_FAC_R&quot; = '3B'<br />
+R &lt;=25 mph: &quot;BIKE_FAC_R&quot; = '3B' AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>R &gt;25 and &lt;=35 mph:</em> &quot;BIKE_FAC_R&quot; = '3B' AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>R &gt;35 mph:</em> &quot;BIKE_FAC_R&quot; = '3B' AND &quot;POSTED_SPD&quot; &gt; 35<br />
+<br />
+<strong>Sharrows (3A)</strong><br />
+<em>L Total:</em> &quot;BIKE_FAC_L&quot; = '3A'<br />
+L &lt;=25 mph: &quot;BIKE_FAC_L&quot; = '3A' AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>L &gt;25 and &lt;=35 mph:</em> &quot;BIKE_FAC_L&quot; = '3A' AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>L &gt;35 mph:</em> &quot;BIKE_FAC_L&quot; = '3A' AND &quot;POSTED_SPD&quot; &gt; 35<br />
+<em>R Total:</em> &quot;BIKE_FAC_R&quot; = '3A'<br />
+<em>R &lt;=25 mph:</em> &quot;BIKE_FAC_R&quot; = '3A' AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>R &gt;25 and &lt;=35 mph:</em> &quot;BIKE_FAC_R&quot; = '3A' AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+R &gt;35 mph: &quot;BIKE_FAC_R&quot; = '3A' AND &quot;POSTED_SPD&quot; &gt; 35<br />
+<br />
+<strong>Bike Lanes (Class 2 [Removed Buffer per side])</strong><br />
+<em>L Total:</em> &quot;BIKE_FAC_L&quot; = '2' AND &quot;BIKE_BUF_L&quot; &lt;&gt; 1<br />
+<em>L &lt;=25 mph:</em> &quot;BIKE_FAC_L&quot; = '2' AND &quot;BIKE_BUF_L&quot; &lt;&gt; 1 AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>L &gt;25 and &lt;=35 mph:</em> &quot;BIKE_FAC_L&quot; = '2' AND &quot;BIKE_BUF_L&quot; &lt;&gt; 1 AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>L &gt;35 mph</em>: &quot;BIKE_FAC_L&quot; = '2' AND &quot;BIKE_BUF_L&quot; &lt;&gt; 1 AND &quot;POSTED_SPD&quot; &gt; 35<br />
+<em>R Total:</em> &quot;BIKE_FAC_R&quot; = '2' AND &quot;BIKE_BUF_R&quot; &lt;&gt; 1<br />
+<em>R &lt;=25 mph</em>: &quot;BIKE_FAC_R&quot; = '2' AND &quot;BIKE_BUF_R&quot; &lt;&gt; 1 AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>R &gt;25 and &lt;=35 mph:</em> &quot;BIKE_FAC_R&quot; = '2' AND &quot;BIKE_BUF_R&quot; &lt;&gt; 1 AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>R &gt;35 mph:</em> &quot;BIKE_FAC_R&quot; = '2' AND &quot;BIKE_BUF_R&quot; &lt;&gt; 1 AND &quot;POSTED_SPD&quot; &gt; 35<br />
+<br />
+<strong>Buffered Bike Lanes (Not counted with Bike Lanes)</strong><br />
+<em>L Total:</em> &quot;BIKE_BUF_L&quot; = 1 AND &quot;BIKE_FAC_L&quot; &lt;&gt; '2'<br />
+<em>L &lt;=25 mph:</em> &quot;BIKE_BUF_L&quot; = 1 AND &quot;BIKE_FAC_L&quot; &lt;&gt; '2' AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>L &gt;25 and &lt;=35 mph:</em> &quot;BIKE_BUF_L&quot; = 1 AND &quot;BIKE_FAC_L&quot; &lt;&gt; '2' AND “POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>L &gt;35 mph:</em> &quot;BIKE_BUF_L&quot; = 1 AND &quot;BIKE_FAC_L&quot; &lt;&gt; '2' AND “POSTED_SPD&quot; &gt; 35<br />
+<em>R Total:</em> &quot;BIKE_BUF_R&quot; = 1 AND &quot;BIKE_FAC_R&quot; &lt;&gt; '2'<br />
+<em>R &lt;=25 mph:</em> &quot;BIKE_BUF_R&quot; = 1 AND &quot;BIKE_FAC_R&quot; &lt;&gt; '2' AND &quot;POSTED_SPD&quot; &lt;= 25<br />
+<em>R &gt;25 and &lt;=35 mph:</em> &quot;BIKE_BUF_R&quot; = 1 AND &quot;BIKE_FAC_R&quot; &lt;&gt; '2' AND &quot;POSTED_SPD&quot; &gt; 25 AND &quot;POSTED_SPD&quot; &lt;= 35<br />
+<em>R &gt;35 mph:</em> &quot;BIKE_BUF_R&quot; = 1 AND &quot;BIKE_FAC_R&quot; &lt;&gt; '2' AND “POSTED_SPD&quot; &gt; 35<br />
+<br />
+After each Select by Attribute is ran, look at the SHAPE_Leng column and right click on the column and select Summary. The Sum field will give you your answer in miles.<br />
+<br />
+<img src="files/DetermingMileage.JPG" alt="DetermingMileage.JPG" title="DetermingMileage.JPG" style="height: 491px; width: 800px;" /><br />
+<span style="display: block; height: 1px; left: 0px; overflow: hidden; position: absolute; top: 245.5px; width: 1px;"><br />
+
+
+<table class="wiki_table">
+    <tr>
+        <td>Questions separate by facility type, then by speed range. Answers need to be in centerline miles - to reduce double counting, we established a hierarchy of bike facility types<br />
+</td>
+    </tr>
+</table>
+
+</span>
+    </div>
+  </body>
+</html>

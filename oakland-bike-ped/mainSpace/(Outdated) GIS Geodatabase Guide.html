@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - (Outdated) GIS Geodatabase Guide</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">The purpose of this Wiki Page is to help the user decide which Geodatabase to use for a given project.</span><br />
+<span style="background-color: #ffffff;"><div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Geodatabases (GDB)">Geodatabases (GDB)</a></div>
+<div style="margin-left: 1em;"><a href="#Usable Geodatabases">Usable Geodatabases </a></div>
+<div style="margin-left: 1em;"><a href="#Reconnecting Data to MXD">Reconnecting Data to MXD</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="Geodatabases (GDB)"></a><span style="background-color: #ffffff;">Geodatabases (GDB)</span></h1>
+ <br />
+<hr />
+<span style="background-color: #ffffff; color: #333333; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">A geodatabase is an alternate way to store GIS information in one large file, which can contain multiple point, polygon, and/or polyline layers. ESRI is pushing the geodatabase idea, because it is a less “messy” way of organizing data than having multiple shapefiles. in multiple folders. While shapefiles are still very popular and commonly available, you may run into geodatabases in your search for useful data. Here are the basics:</span><br />
+<br />
+<ul><li><span style="background-color: #ffffff; color: #333333; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">Geodatabases often appear as single files with the “.gdb” extension or “.mdb” extension.</span></li><li><span style="background-color: #ffffff; color: #333333; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px;">In a GDB, “shapefiles” are referred to as “feature classes.” Otherwise, they perform the same function when you add them as layers to your map in ArcGIS</span></li></ul><br />
+<h1 id="toc1"><a name="Usable Geodatabases"></a><span style="background-color: #ffffff;">Usable Geodatabases </span></h1>
+ <hr />
+- The Master Geodatabase<br />
+<img src="files/MASTER.PNG" alt="MASTER.PNG" title="MASTER.PNG" /><br />
+<ul><li>Consider the Master GDB to be a broad view of different essential layers used throughout the program.</li><li>The Master Geodatabase should be used to find and use common GIS layers such as Bikeways, Bikeway Signage, and Wayfinding Destinations.</li><li>This Geodatabase should not be used to hold created layers for specific projects (i.e. Clips, Segments, Merges).</li></ul>- The GeoProcessing Geodatabase<br />
+<img src="files/GEOPROCESSING.PNG" alt="GEOPROCESSING.PNG" title="GEOPROCESSING.PNG" /><br />
+<ul><li>The GeoProcessing GDB contains the more specialized layers.</li><li>This GDB should be used for the unique layers created within different projects.</li><li>Examples of layers within are Bikeway Segments, Street Clips, and other specialized layers.</li></ul>- The SDEuser Geodatabase<br />
+<img src="files/SDE.PNG" alt="SDE.PNG" title="SDE.PNG" /><br />
+<ul><li>This GDB contains all the City managed GIS files.</li></ul><h1 id="toc2"><a name="Reconnecting Data to MXD"></a>Reconnecting Data to MXD</h1>
+ <hr />
+Now that much of the data has been moved around, you may notice that some of the layers in your MXDs have lost connections.<br />
+It will look like this:<img src="files/Missing%20link.PNG" alt="Missing link.PNG" title="Missing link.PNG" /><br />
+To repair the links, you must first navigate to the properties of the missing layer. Then select the Source Tab and click the Set Data Source Button.<br />
+From there, navigate to the GDB where you believe your missing layer is, click on the layer's link, and then click OK.<br />
+The layer will now be reconnected.
+    </div>
+  </body>
+</html>

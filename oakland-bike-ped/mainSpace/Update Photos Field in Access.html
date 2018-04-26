@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Oakland-bike-ped - Update Photos Field in Access</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<span style="background-color: #ffffff;">First compose a short summary of page contents, e.g. 'Template is a template used for creating pages within this wiki.&quot;</span><br />
+<span style="background-color: #ffffff;">Include links to related pages<div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#x1. Batch Updates">1. Batch Updates</a></div>
+<div style="margin-left: 2em;"><a href="#x1. Batch Updates-2. Individual Updates">2. Individual Updates</a></div>
+</div>
+<br />
+</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 id="toc0"><a name="x1. Batch Updates"></a><span style="background-color: #ffffff;">1. Batch Updates</span></h1>
+ <hr />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">This would be performed on occasions where many new photos are taken of newly installed racks/signs or of old racks/signs that needed to be verified. See section below the numbered instructions for details on how to update single entries in the photos field of a bike rack or wayfinding sign.</span><br />
+<br />
+<ol><li>Add your photos to the sign/rack database folder on the network.</li><li>Within the folder of the sign/rack photos, press control + alt + shift + right-click and then select “Open command window here”</li><li>At the command prompt, type “python create_picture_list.py” and then press enter. A message should print out saying that the tool finished creating the list of pictures. In the folder of photos, there should now be a pics.csv file.</li><li>Open “pics.csv” in Microsoft Excel and in the column next to “forAccess”, paste in the SignID or RackID column from Microsoft Access.</li><li>Next to the ID column created in step 4, create a new “Photos Field” column.</li><li>Assuming “Photos Field” is in column E of Excel, that the ID column from Access is in column D of Excel, that &quot;Match_Column&quot; is column A of Excel, and that &quot;forAccess&quot; is in column C, type the following formula in the first empty row and then drag the formula down to apply it to all rows for which there is a RackID or SignID: <span style="line-height: 1.5;">=IFERROR(INDEX(C:C, MATCH(D2,A:A,0)), &quot;&quot;)</span></li><li>Copy and paste the resulting “Photos Field” column into the database.</li></ol><br />
+<h2 id="toc1"><a name="x1. Batch Updates-2. Individual Updates"></a><span style="background-color: #ffffff; font-size: 1.4em; line-height: 1.5;">2. Individual Updates</span></h2>
+ <hr />
+<span style="font-family: Calibri,sans-serif; font-size: 11pt;">For making a new entry in the photo field without updating the entire column, simply type the rack number, “.jpg#database-rackphotos\”, the rack number again, and then “.jpg” into the appropriate cell. For example, type “xx.jpg#database-rackphotos\xx.jpg” where xx is replaced with the rack number whose photo field is being updated. For updating a particular sign photo cell in the sign photos database, use uppercase JPG and use “#SignPhotos\” instead of “#database-rackphotos\”.</span>
+    </div>
+  </body>
+</html>
